@@ -1,0 +1,37 @@
+Python'da kullanılan temel anahtar kelimelerin kısa özetleri:
+
+1. False: Boolean veri tipinde yanlış değeri temsil eder.
+2. None: Değer atanmamış veya boş bir değeri temsil eder.
+3. True: Boolean veri tipinde doğru değeri temsil eder.
+4. and: İki koşulu birleştirmek için kullanılan mantıksal operatördür. Her iki koşul da doğru olmalıdır.
+5. as: Bir modülü, paketi veya nesneyi başka bir isimle içeri aktarmak için kullanılır.
+6. assert: Bir ifadeyi doğrulamak için kullanılır, eğer ifade yanlışsa bir AssertionError hatası fırlatır.
+7. async: Bir işlevin asenkron olarak çalıştırılacağını belirtmek için kullanılır.
+8. await: Asenkron işlevler içinde kullanılan bir ifadedir, bir asenkron işlemin tamamlanmasını bekler.
+9. break: Döngüden çıkmak için kullanılır.
+10. class: Bir sınıf tanımlamak için kullanılır, nesne yönelimli programlamada önemli bir kavramdır.
+11. continue: Döngünün bir sonraki adıma atlamasını sağlar.
+12. def: Bir fonksiyon tanımlamak için kullanılır.
+13. del: Bir nesneyi silmek için kullanılır.
+14. elif: Bir ifade zincirindeki ikinci ve sonraki koşullu blokları tanımlamak için kullanılır.
+15. else: Bir ifade bloğunun yanlış olduğunda çalışacak kodu tanımlar.
+16. except: Bir hata durumunu ele almak için kullanılır.
+17. finally: Bir try-except bloğundan sonra çalışacak kodu tanımlar.
+18. for: Bir döngü oluşturmak için kullanılır.
+19. from: Bir modülün belirli öğelerini içeri aktarmak için kullanılır.
+20. global: Bir değişkenin global bir değişken olduğunu belirtmek için kullanılır.
+21. if: Bir koşulu değerlendirmek için kullanılır.
+22. import: Bir modülü içeri aktarmak için kullanılır.
+23. in: Bir değerin bir dizi, liste veya başka bir koleksiyonun içinde olup olmadığını kontrol etmek için kullanılır.
+24. is: İki nesnenin aynı nesne olup olmadığını kontrol etmek için kullanılır.
+25. lambda: Küçük bir anonim fonksiyon tanımlamak için kullanılır.
+26. nonlocal: Bir iç içe fonksiyonun, bir dış fonksiyondaki bir değişkene erişmesini sağlar.
+27. not: Bir ifadenin tersini almak için kullanılır.
+28. or: İki koşulu birleştirmek için kullanılan mantıksal operatördür. En az bir koşul doğru olmalıdır.
+29. pass: Herhangi bir işlem yapmadan bir bloğu geçmek için kullanılır.
+30. raise: Bir istisna (exception) oluşturmak için kullanılır.
+31. return: Bir fonksiyondan değer döndürmek için kullanılır.
+32. try: Bir hata durumunu ele almak için kullanılır.
+33. while: Belirli bir koşul sağlandığı sürece bir bloğu tekrar etmek için kullanılır.
+34. with: Bir kaynağı (dosya gibi) otomatik olarak yönetmek için kullanılır.
+35. yield: Bir üreteç fonksiyonunda değer üretmek için kullanılır.
