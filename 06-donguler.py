@@ -7,6 +7,8 @@ DÖNGÜLER(LOOP)
 - While döngüsünün döngü ayısı önceden belli olmayıp koşula bağldır. Örneğin space tuşuna basılan kadar ekrana adını yazdır.
 - Bir liste içinde bir parametrenin olup olmadığını kontrol edebilmek için in ve not in operatörleri kullanılır. True ya da false sonucu döndürür.
 - range(x,y) -> Sayı üretmek için, istenilen aralıkta sayı dizisi oluşturabilmek için kullanılır. Aynı zamanda for döngü yapısında çalışacak döngü sayısını belirlemek için kullanılır. x parametresi başlangıç değeri olup y parametresi ise döngünün sonlanacağı değerdir.
+- break komutu:  döngünün durdurulmasını sağlar.
+- continue komutu: Döngüden çıkmayacağımız ancak belirli bir değerde de işlem yapmayacağımız bir durum olursa kullanılır.
     
 Sytax:
     for a in range(x,y):
@@ -79,3 +81,27 @@ while(x!=0):
     x = int(input('Bir Sayı Girin'))
     print(x**2)
 print('0\'a basarak çıkış yaptınız')
+
+
+#### Break ####
+
+print('Çıkmak İçin 0 \'a Basın')
+while True:
+    d=int(input('Bir Sayı Girin?'))
+    print(d**2)
+    if d==0:
+        break #Döngünün durdurulmasını sağlar.
+
+
+#### Continue ####
+
+## Ör: 7 ve katları hariç 0'dan 100'e sayıları yazdıran program
+    
+for A in range(0,100):
+    if (A%7 == 0):
+        continue #0 ile 100 arasındaki 7 ve 7'nin katları ile karşılaşıldığında işlemi print işlemini atlayacak ve yazmaya devam edecek
+    print(A)
+
+
+
+#### İç içe DÖngüler ####
