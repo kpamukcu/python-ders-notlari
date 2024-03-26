@@ -105,3 +105,11 @@ for A in range(0,100):
 
 
 #### İç içe DÖngüler ####
+
+#Çarpım Tablosu Örneği    
+for A in range(1,11):
+    for B in range(1,11):
+        print(f'{A}x{B}={A*B}')
+    print('\n')
+
+#Bu örnekte ilk olarak A değeri döngü ile oluşur ve daha sonra sistem B döngüsüne girdiğinde ikinci döngü tamamlanana kadar devam eder. İkinci döngü tamamlanınca yeni A değeri oluşur
