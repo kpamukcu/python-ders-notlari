@@ -12,7 +12,7 @@ STRING
     a) degiskenAdi[:]  
     b) degiskenAdi[3:]      -> indexNo'su 3'ten itibaren olan kısım
     c) degiskenAdi[:3]      -> 3. karaktere kadar olan kısım
-    d) degiskenAdi[1:5]     -> indexNo'su 1'den başlayarak 5. karaktere kadarki kısmı alır. Not: 5. kaakter dahil değildir.
+    d) degiskenAdi[1:5]     -> indexNo'su 1'den başlayarak 5. karaktere kadarki kısmı alır. Not: 5. karakter dahil değildir.
     e) degiskenAdi[1::2]    -> indexNo'su 1'den başlayarak 2 karakter atlaya atlaya alır.
     f) degiskenAdi[1:6:3]   -> indexNo'su 1'den başlayarak 6. karaktere 3'er 3er atlayarak alır.
     g) degiskenAdi[::-1]    -> değerin tersten yazılmış halini verir
