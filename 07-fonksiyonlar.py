@@ -97,7 +97,7 @@ print(f'Alanı: {alan(u,g)}m^2, Çevresi: {cevre(u,g)}m')
 
 
 def topla():
-    global b #***** Bu bildirim 98. satırdaki önek yapılırken eklenecek
+    global b #***** Bu bildirim 107. satırdaki önek yapılırken eklenecek
     a = 5
     b = 6
     return (a+b)

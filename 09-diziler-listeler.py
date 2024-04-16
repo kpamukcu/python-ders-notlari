@@ -4,7 +4,7 @@ Diziler ve Listeler
 1- Diziler (Array) -> Ard arda sıralanmış aynı tür elemanların oluşturduğu sıralı objelerdir.
     Sayı Dizisi:    1 7 9 15 78
     Char Dizisi:    T S F W  M
-    indiz:          0 1 2 3  4
+    indis:          0 1 2 3  4
 
 2- Diziler python'da listeler halinde ifade edilir. Listeler bir sıralı elaman dizisidir. Listeler tüm veri türlerini içinde barındırabilir.
     liste = ['Para1','Para2',5,'Para4']
@@ -14,6 +14,16 @@ Diziler ve Listeler
 5- Liste Dilimleme için stringlerde de kullanılan [:] yöntemi kullanılabilir.
 6- listeAdi.append() ile listenin sonuna yeni bir parametre ekleyebiliriz.
 7- listeAdi.insert(indisNo,argüman) ile istediğimiz bir indisNo'ya yeni bir parametre ekleyebiliriz. Not: ekleme işlemi yapılmadan önceki indisNosu seçilen parametre silinmez.
+8- Bir liste içindeki parametrelerin sayısını bulabilmek için len() fonksiyonu'u kullanılabilir.
+9- Bir liste içindeki bir değerin kaç adet olduğunu bulabilmek için .count(değer) metotu kullanılır. Ör: listeAdi.count('Python')
+10- İki listeyi birleştirmek için toplama(+) operatörü kullanılabilir ancak listeAdi1.extend(listeAdi2) metotu ile birleştirme yapılmaktadır. extend ile yapılan birleştirme işleminde listeAdi2'nin değerleri listeAdi1'e atanmaktadır.Yani birleştirilmiş datayı görebilmek için lieteAdi1'i yazdırmak gerekmektedir.
+11- Bir dizi içindeki parametreleri terse döndürmek için reverse() fonksiyonu kullanılır.
+12- Bir liste içindeki int parametlere arasında en küçük ve en büyük değeri bulmak için min() ve max() fonkyionları kullanılır.
+13- String bir ifadeyi listeye dönüştürmek için list('String ifade' veya string değişken Adı) fonksiyonu kullanılır.
+14- Bir liste içinden istenilen değerleri silmek için remove() fonksiyonu kullanılır.
+15- pop(indisNO) ile liste içindeki indisNosu belirlenen bir karakteri silme işlemini yapar.
+16- listeAdi.clear()  ile listenin içindeki tüm parametreleri siler.
+17- Bir liste içinde bir argümanın olup olmadığını kontrol etmek için "in" ve/veya "not in" yöntemleri kullanılır. 
 
 """
 
@@ -87,3 +97,72 @@ while True:
     else:
         print(urunler)
         break
+
+
+### Liste uzunluğunu bulmak
+L = [1,3,6,5,8,9,1,2,'ta','-']
+print(len(L)) #Ekrana 10 yazacaktır.
+
+print(L.count(1)) #Ekrana 1 paratmeresinin L dizisinde kaç adet olduğunu yazacaktır.
+
+# Listeleri Birleştirme
+#Yöntem 1
+S1 = [1,2,3,4]
+S2 = [5,6,7,8]
+S3 = S1 + S2
+print(S3)
+
+#Yöntem 2
+S1.extend(S2) # S2 listesinin değerlerini S1 dizisine aktardı.
+print(S1) ####[1, 2, 3, 4, 5, 6, 7, 8] ekrana yazacaktır.
+
+
+# Liste paramtelerini tterse çevirme
+uyeler = ['Hayko','Mahmut','Bülent']
+uyeler.reverse() # Liste içindeki parametleri terten sıralanacak şekilde uyeler listesine atama yaptı
+print(uyeler) # Ekrana ['Bülent', 'Mahmut', 'Hayko'] yazar
+
+#En küçük ve En büyük değerleri bulmak
+sayilar = [12,332,5,4969,123548]
+print(min(sayilar)) #Ekrana 5 yazar
+print(max(sayilar)) #Ekrana 123548 yazar
+
+#Kullanıcıdan alınan 5 adet rakamlardan en büyük ve en küçüğünün toplamını bulan ve girilen rakamların artimetik ortalamasını bulan uygulama yazın.
+L = []
+topla = 0
+for i in range(5):
+    sayi = int(input('Sayı Girin.: '))
+    L.append(sayi)
+    topla += sayi
+
+print(f'Girilen Sayılardan En Büyük ve En Küçüğünün Toplamı: {max(L) + min(L)}')
+print(f'Girilen sayıların artimetik ortalaması: {topla/len(L)}')
+
+
+#String ifadeyi listeye çevirme
+kelime = 'ARIBİLGİAKADEMİ'
+L = list(kelime)
+print(L) #Ekrana ['A', 'R', 'I', 'B', 'İ', 'L', 'G', 'İ', 'A', 'K', 'A', 'D', 'E', 'M', 'İ'] yazar
+print(L.count('A')) #Ekrana 3 yazar
+
+L.remove('İ') #Sadece ilk 'i' karakterini siler. Tüm İ karaterlerini silmek için döngüye girmelidir.
+print(L)
+
+#### String bir değerden belirlenen bir karaterlerin tümünü silmek ####
+isim = 'KAANPAMUKCU'
+L= list(isim) #isim string değişkenindeki değer karakter karakter L listesine atandı
+
+for i in range(L.count('A')):  #L.count('A') ile döngünün kaç defa tekrarlanacağını oluşturulan liste içindeki karaktrer sayısına göre belirledi.
+    L.remove('A') #L listesi içindeki A karakterlerini tek tek sildi
+
+print(L) #Ekrana ['K', 'N', 'P', 'M', 'U', 'K', 'C', 'U'] yazar
+
+
+#Listenin tamamını temizleme
+L.clear()
+print(L) #Ekrana [] yazar.
+
+#Bir Liste içinde bir argümanın olup olmadığını kontrol etmek
+uyeler = ['Hayko','Mahmut','Ajdar']
+print('Hayko' in uyeler) #Ekrana True yazar
+print('Hakan' in uyeler) #Ekrana False yazar
