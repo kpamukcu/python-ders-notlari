@@ -75,3 +75,15 @@ else:
     print('Ürün Ekleme işlemi kullanıcı tarafından reddedildi')
 
 ##### ÖDEV -> Kullanıcı yeni kayıt işlemini bitirene kadar ürün girme işlemine devam etsin. (While döngüsü ile)
+
+#### Kullanıcı yeni kayıt işlemini biterene kadar ürün girme uygulaması
+urunler = []
+print('İşlemi Tamamlamak için 0\'a Basın.')
+
+while True:
+    yeniUrun = input('Yeni Ürün Girin.: ')
+    if yeniUrun != '0':
+        urunler.append(yeniUrun)
+    else:
+        print(urunler)
+        break
