@@ -21,9 +21,18 @@ Diziler ve Listeler
 12- Bir liste içindeki int parametlere arasında en küçük ve en büyük değeri bulmak için min() ve max() fonkyionları kullanılır.
 13- String bir ifadeyi listeye dönüştürmek için list('String ifade' veya string değişken Adı) fonksiyonu kullanılır.
 14- Bir liste içinden istenilen değerleri silmek için remove() fonksiyonu kullanılır.
-15- pop(indisNO) ile liste içindeki indisNosu belirlenen bir karakteri silme işlemini yapar.
+15- pop(indisNO) ile liste içindeki indisNosu belirlenen bir karakteri silme işlemini yapar. Eğer parantez içine indisNo yazılmazsa listedeki son parametreyi silecektir.
 16- listeAdi.clear()  ile listenin içindeki tüm parametreleri siler.
-17- Bir liste içinde bir argümanın olup olmadığını kontrol etmek için "in" ve/veya "not in" yöntemleri kullanılır. 
+17- Bir liste içinde bir argümanın olup olmadığını kontrol etmek için "in" ve/veya "not in" yöntemleri kullanılır.
+18- Liste parametrelerini a'dan z'ye veya küçükten büyüğe sıralamak için listeAdi.sort() fonksiyonu kullanılır.
+    Z'den a'ya veya büyükten küçüğe doğru sıralamak direkt olarak yoktur. Bunun için şu iki yönetmi kullanabiliriz
+    
+    1. Yöntem: liste artan yönde sıralandıktan sonra listeAdi = listeAdi[::-1] ile azalan yönde sıralama yaptırılabilir.
+    2. Yöntem: liste artan yönde sıralandıktan sonra listeAdi.reverse() fonksiyonu ile azalan yönde sıralama yaptırılabilir.
+
+19- Bir listenin elemanlarını umaralandırmak istenirse enumarate() fonksiyonu kullanılır.
+20- Listenden yığın oluşturma: Eleman ekleme ve çıkarma işlemlerinin listenin en son elemanı üzerinden gerçekleştiği özel bir yapıdır. Listeye son giren ilk çıkar (Last In - First Out) Ör: üst üste dizilen kitaplar gibi düşünülebilir. En alttaki kitaba ulaşmak için üstündekileri sırayla kaldırmak gerekir.
+21- Listeden kutruk oluşturma: eleman ekleme işleminin listenin sonundan ve çıkama işlemlerinin listenin başından gerçekleştiği özel bir yapıdır. Listeye son giren son çıkar (Last in - Last Out) Ör: Atm sırasındaki kullanıcılar
 
 """
 
@@ -119,7 +128,7 @@ print(S1) ####[1, 2, 3, 4, 5, 6, 7, 8] ekrana yazacaktır.
 
 # Liste paramtelerini tterse çevirme
 uyeler = ['Hayko','Mahmut','Bülent']
-uyeler.reverse() # Liste içindeki parametleri terten sıralanacak şekilde uyeler listesine atama yaptı
+uyeler.reverse() # Liste içindeki parametleri tersten sıralanacak şekilde uyeler listesine atama yaptı
 print(uyeler) # Ekrana ['Bülent', 'Mahmut', 'Hayko'] yazar
 
 #En küçük ve En büyük değerleri bulmak
@@ -166,3 +175,54 @@ print(L) #Ekrana [] yazar.
 uyeler = ['Hayko','Mahmut','Ajdar']
 print('Hayko' in uyeler) #Ekrana True yazar
 print('Hakan' in uyeler) #Ekrana False yazar
+
+#Liste elemanlarını sıralama
+Lsayi = [22,78,14,963,1,79543]
+print(Lsayi) #Ekrana [22,78,14,963,1,79543] yazar
+
+#Lsayi = Lsayi[::-1]
+Lsayi.reverse()
+print(Lsayi) #Ekrana [79543, 1, 963, 14, 78, 22] yazar
+
+
+#Liste Elemanlarını Numaralandırma
+gun = ['Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi','Pazar']
+
+for i, deger in enumerate(gun):
+    print(str(i+1)+'.gün '+deger)
+
+### VEYA ###
+
+for i in range(len(gun)):
+    print(f'{i+1}.gün {gun[i]}')
+
+
+### Restoran Sıra Uygulaması
+
+L = []
+
+while True:
+    isim = input('İsim Giriniz.: ')
+    if isim != 'sıradaki' and isim != 'listele' and isim != 'bitti':
+        L.append(isim)
+    elif isim == 'sıradaki':
+        if len(L) > 0:
+            print(L.pop(0))
+        else:
+            print('Sırada kimse yok')
+    elif isim == 'listele':
+        if len(L) > 0:
+            for i in range(len(L)):
+                print(f'{i+1}. {L[i]}')
+            sil = input('Listen çıkartmak istediğiniz mi var(e/h).: ')
+            if sil == 'e':
+                kim = int(input('Sİlmek istediğiniz kişinin sıra numarasını girin.: '))
+                L.remove(L[kim-1])
+                # print(f'{i+1}. {L[i]}')
+            elif sil == 'h':
+                print('Silme işlemi iptal')
+        else:
+            print('Listede kimse yok')
+    elif isim == 'bitti':
+        print('Restoranımız Kapandı')
+        break
