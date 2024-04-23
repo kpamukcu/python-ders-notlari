@@ -226,3 +226,21 @@ while True:
     elif isim == 'bitti':
         print('Restoranımız Kapandı')
         break
+
+
+### Hasta Muane Ekleme, Takip Etme Uygulaması
+
+H = []
+
+while True:
+    TC = int(input('Tc Kimlik No Giriniz.: '))
+    if TC in H:
+        hastaNo = H.index(TC) + 1
+        print(f'{TC} tc kmlik nolu hastanın sıra nosu: {hastaNo}')
+    elif TC == 0:
+        print(f'{H[0]} TC Kimlik nolu Hastamız Doktorun Yanına Gidiniz')
+        H.pop(0)
+    else:
+        H.append(TC)
+        for i in range(len(H)):
+            print(f'{i+1}. {H[i]}')
