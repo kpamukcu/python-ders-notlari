@@ -178,4 +178,13 @@ s1 = Student('Mahmut','Tuncer') #Ekrana önce 'Person Created'sonra da 'Student 
 print(f'Merhaba ben {p1.firstName} {p1.lastname}')
 print(f'Merhaba ben {s1.firstName} {s1.lastname}')
 
+##############################################################
+
+### Özel Metotlar ###
+
+class Movie():
+    pass
+
+m = Movie()
+
 
