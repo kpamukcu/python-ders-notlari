@@ -99,3 +99,83 @@ k1 = kamyon(2020,120000,'Kırmızı')
 print(k1.model)
 print(k1.fiyat)
 print(k1.renk)
+
+##############################################################
+class Person:
+    # class attributes (Her zaman kullanılmayacak olan attribute'ları class attribute olarak tanımla)
+    adres = 'Lorem Ipsum Dolor Sit Amet Kadıköy / İstanbul'
+    # Constractor (Yapıcı Metot)
+    def __init__(self, name, year):
+    # object attributes (Her zamana kullanılacak ve zorunlu olan attribute'ları object attribute olarak tanımla)
+        self.name = name
+        self.birthYear = year
+    # instance methods
+    def intro(self):
+        print('Merhaba')
+
+#Object(instance)
+p1 = Person('Kaan',1980)
+
+
+print(p1.name) ## Ekrana Kaan yazar
+print(p1.birthYear) ## Ekrana 1980 yazar
+
+##############################################################
+
+para1 = input('Adınız Soyadınız.: ')
+para2 = int(input('Doğum Yılınız.: '))
+para3 = input('Telefon Numaranız.: ')
+
+class Uyeler:
+    adres = 'Lorem Ipsum Dolor Sit Amet Kadıköy - İstanbul'
+    def __init__(self,name,year,phone):
+        self.isim = name
+        self.dogum = year
+        self.tel = phone
+    def intro(self):
+        print('Merhaba ' + self.isim)
+    def age(self):
+        return 2024 - self.dogum
+
+
+p1 = Uyeler(para1, para2, para3)
+
+# Updating
+# p1.isim = 'Mahmut'
+
+#Accesing Object Attributes
+print(f'{p1.isim} / {p1.dogum} / {p1.tel} / {p1.adres}')
+
+p1.intro()
+print(p1.age())
+
+
+
+
+##############################################################
+
+### Inheritance (Kalıtım): Miras Alma
+# Person => name, lastname, age, eat(), run(), drink()
+# Student(Person), Teacher(Person)
+
+#Animal => Dog(Animal), Cat(Animal)
+
+class Person():
+    def __init__(self,fname,lname):
+        self.firstName = fname
+        self.lastname = lname
+        print('Person Created')
+
+class Student(Person): #Person'ın sahip olduğu tüm özellikler Student class'ına da atanmış oldu
+    def __init__(self,fname,lname):
+        Person.__init__(self,fname,lname) # Ekrana 'Person Created' yazar
+        print('Student Created') # Ekrana 'Student Created' yazar
+
+
+p1 = Person('Hakan','Yılmaz') #Ekrana sadece 'Person Created' gelecektir.
+s1 = Student('Mahmut','Tuncer') #Ekrana önce 'Person Created'sonra da 'Student Created' gelecektir.
+
+print(f'Merhaba ben {p1.firstName} {p1.lastname}')
+print(f'Merhaba ben {s1.firstName} {s1.lastname}')
+
+
