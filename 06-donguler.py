@@ -4,7 +4,7 @@ DÖNGÜLER(LOOP)
 - Tekrarlanması istenilen işlemler için kullanılırlar.
 - For ve While olmak üzere iki döngü tipi vardır.,
 - For döngüsünün döngü sayısı önceden bellidir.
-- While döngüsünün döngü ayısı önceden belli olmayıp koşula bağldır. Örneğin space tuşuna basılan kadar ekrana adını yazdır.
+- While döngüsünün döngü sayısı önceden belli olmayıp koşula bağldır. Örneğin space tuşuna basılan kadar ekrana adını yazdır.
 - Bir liste içinde bir parametrenin olup olmadığını kontrol edebilmek için in ve not in operatörleri kullanılır. True ya da false sonucu döndürür.
 - range(x,y) -> Sayı üretmek için, istenilen aralıkta sayı dizisi oluşturabilmek için kullanılır. Aynı zamanda for döngü yapısında çalışacak döngü sayısını belirlemek için kullanılır. x parametresi başlangıç değeri olup y parametresi ise döngünün sonlanacağı değerdir.
 - break komutu:  döngünün durdurulmasını sağlar.
