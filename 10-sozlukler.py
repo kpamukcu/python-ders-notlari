@@ -93,7 +93,7 @@ print(k)
 
 k1 = {5,2,3,4,1}
 k2 = {1,3,8,7,6}
-k1k2 = k1 | k2 #İki kümeyi birleştirdik. ancak 1 ve 3 parametreleri oratk olduğu için yeni oluşan k1k2 kümesinde birer kere yazacak
+k1k2 = k1 | k2 #İki kümeyi birleştirdik. ancak 1 ve 3 parametreleri ortak olduğu için yeni oluşan k1k2 kümesinde birer kere yazacak
 print(k1k2) # ekrana {1, 2, 3, 4, 5, 6, 7, 8} yazar. artan sıralama ile görünecektir.
 
 print(k1&k2) #iki kümenin kesişim değerlerini verir. Ekrana {1, 3} yazar.
@@ -104,3 +104,7 @@ print(k2-k1) #k2 kümesinde olup k1 kümesinde olmayanları gösterir. Ekrana {6
 ### Demetler (tuple) ###
 t = (1,'Hayko','*',325)
 print(t) ## Ekrana (1, 'Hayko', '*', 325) yazar
+
+
+
+
