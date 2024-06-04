@@ -1,0 +1,4 @@
+Ahmet Yılmaz:60,70,80
+Mehmet Yılmaz:90,70,80
+Deniz Efe:60,80,90
+Çınar Turan:100,60,70
