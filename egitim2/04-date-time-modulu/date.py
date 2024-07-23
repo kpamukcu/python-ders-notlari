@@ -49,4 +49,9 @@ print(datetime.strftime(tarihZaman,'%B'))   # June şeklinde ay bilgisini verir.
 print(datetime.strftime(tarihZaman, '%d %B %Y'))    # 14 June 2024 şeklinde bilgi verir.
 
 
+t = '14 Kasım 2022'
+gun, ay, yil = t.split()
+print(gun)
+print(ay)
+print(yil)
 
