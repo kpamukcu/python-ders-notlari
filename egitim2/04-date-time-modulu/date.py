@@ -25,7 +25,7 @@ Formatlanmış halde kullanım
 12- datetime.strftime(degiskenadi, '%A')    -> Monday şeklinde gün bilgini verir. Haftanın hangi günü olduğunu verir.
 13- datetime.strftime(degiskenAdi, '%B')    -> June şeklinde ay bilgisini verir.
 
-Not: Formatlı kullanım için ikinci parametrelere https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes adresinden ulaşılabilir.
+Not: Formatlı kullanım için ikinci parametrelere https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes adresinden ulaşılabilir. Deneme
 
 """
 
