@@ -16,8 +16,8 @@ print(bmi)
 
 ### Kullanıcıdan Bilgi Alma ###
 
-# input() -> Kullanıcıdan bilgi almak için kullanılır.
-# float() -> Integer değeri float değere dönüştürür.
+# input() -> Kullanıcıdan bilgi almak için kullanılır. input'tan alınan veriler her zaman string döner.
+# float() -> input'tan alınan veriyi sayısal değere döndürür.
 boyCm = float(input('Boy Bilginizi cm cinsinden girin'))
 kg = float(input('Kilo Bilginizi Girin: '))
 
