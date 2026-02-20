@@ -3,36 +3,49 @@ String ve String Metotları
 
 Metinsel verileri ifade eden data türüdür. Tırnak içinde yazılırlar.
 
-    Metot           Amaç                                        Açıklama
-1-  lower()         Küçük harf Dönüştürür.                      Özellikle kullanıcı girişleri için. Ör: Mail Adresi girişi
-2-  upper()         Büyük harfe dönüştürür.                     Özellikle kullanıcı girişleri için
+    Metot
+1-  lower()         Küçük harf Dönüştürür. Özellikle kullanıcı girişleri için.
+                    Ör: Mail Adresi girişi
+
+2-  upper()         Büyük harfe dönüştürür.Özellikle kullanıcı girişleri için
 3-  title()         İlk Harfleri Büyütür.                
 4-  capitalize()    Sadece ilk harfi büyütür.
-5-  strip()         Baştaki ve Sondaki Boşlukları Siler         Kullanıcın hatalı olarak boşluk eklemesi ihtimali 
-6-  lstrip()        Soldaki Boşlukları Siler                    Kullanıcın hatalı olarak boşluk eklemesi ihtimali
-7-  rstirp()        Sağdaki Boşlukları Siler                    Kullanıcın hatalı olarak boşluk eklemesi ihtimali
-8-  find()          Kelimenin indexNo'sunu verir                Arama İşlemleri için kullanılır. Bulursa indexNo verir yoksa -1 döner. Ör: "@" işareti var mı?
-9-  index()         Kelimenin indexNo'sunu verir                Arama İşlemleri için kullanılır. Bulursa indexNo verir yoksa hata döner. 
-10- startswith()    Şununla mı Başlıyor                         Dosya kontrolleri için. ör: "htmls://" var mı?                   
-11- endswith()      Şununla mı Bitiyor                          Ör: .exe var mı?
-12- replace(x,y)    Metni Değiştir                              x değişecek kelime y yeni kelime parametreleridir. 
-                                                                Ör: 0555-555-55-55 formatını 05555555555 değiştirir.
-                                                                Ör: Seo Uyumlu Url Yapılabilir. "Python 2026 Dersleri" <-> "python-2026-dersleri"
+5-  strip()         Baştaki ve Sondaki Boşlukları Siler. Kullanıcın boşluk eklemesi 
+6-  lstrip()        Soldaki Boşlukları Siler. Kullanıcın hatalı olarak boşluk eklemesi
+7-  rstirp()        Sağdaki Boşlukları Siler. Kullanıcın hatalı olarak boşluk eklemesi
+8-  find()          Kelimenin indexNo'sunu verir. Arama İşlemleri için kullanılır.
+                    Bulursa indexNo verir yoksa -1 döner. Ör: "@" işareti var mı?
 
-13- split()         Metni Listeye Böler                         Her Kelimeyi parçalayıp liste dataya dönüştürür. Karaktere göre parçalama da yapar.
-                                                                Ör: csv verisi işlerken kullanılabilir
+9-  index()         Kelimenin indexNo'sunu verir. Arama İşlemleri için kullanılır.  
+                    Bulursa indexNo verir yoksa hata döner. 
+
+10- startswith()    Şununla mı Başlıyor. Dosya kontrolleri için. ör: "htmls://" var mı?                   
+11- endswith()      Şununla mı Bitiyor. Ör: .exe var mı?
+
+12- replace(x,y)    Metni Değiştiriri. x değişecek kelime y yeni kelime parametreleridir. 
+                    Ör: 0555-555-55-55 formatını 05555555555 değiştirir.
+                    Ör: Seo Uyumlu Url Yapılabilir.
+                    "Python 2026 Dersleri" <-> "python-2026-dersleri"
+
+13- split()         Metni Listeye Böler. Her Kelimeyi parçalayıp liste dataya dönüştürür.
+                    Karaktere göre parçalama da yapar.
+                    Ör: csv verisi işlerken kullanılabilir.
 
                                                                 
-14- isalpha()       Sadece harf mi kontrolü yapar               İfade içinde sadece harf olup olmadığını kontrol eder.
-                                                                Ör: Form validation'larında kullanılır. "Sadece Harf Girin" 
+14- isalpha()       Sadece harf mi kontrolü yapar. 
+                    İfade içinde sadece harf olup olmadığını kontrol eder.
+                    Ör: Form validation'larında kullanılır. "Sadece Harf Girin" 
 
-15- isdigit()       Sadece sayı mı kontrolü yapar               İfade içinde sadece sayı olup olmadığını kontrol eder.
-                                                                Ör: Form validation'larında kullanılır. "Sadece Sayı Girin"
+15- isdigit()       Sadece sayı mı kontrolü yapar.
+                    İfade içinde sadece sayı olup olmadığını kontrol eder.
+                    Ör: Form validation'larında kullanılır. "Sadece Sayı Girin"
 
-16- isalnum()       Harf + Sayı mı?                             İfade içinde sadece sayı ve harf olup olmadığını kontrol eder.
+16- isalnum()       Harf + Sayı mı?
+                    İfade içinde sadece sayı ve harf olup olmadığını kontrol eder.
+
 17- islower()       Küçük Harf mi kontrolü yapar
 18- isupper()       Büyük harf mi kontrolü yapar
-19- len()           Metinin karakter uzunluğunu verir.          Ör: Şifre giriş uzunlukları
+19- len()           Metinin karakter uzunluğunu verir. Ör: Şifre giriş uzunlukları
 
 """
 
@@ -86,6 +99,8 @@ print(metin13.isalnum())        #metin13 içinde hem harf hem de sayı içerdiğ
 metin14 = 'PYTHONDERSLERI@GMAIL.COM'
 print(metin14.islower())        #metin14 büyük harfler olduğu için false döner
 print(metin14.isupper())        #metin14 büyük harfler olduğu için true döner
+
+
 
 
 ### Örnek:
