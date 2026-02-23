@@ -9,15 +9,15 @@ En Çok Kullanılan Gömülü Fonksiyonlar
 1- print()  -> Ekrana çıktı verir
 2- type()   -> Datanın veri türünü gösterir.
 3- isinstance(parametre, data türü) -> Veri tipi kontrolü yapar. true / false sonucu döner.
-3- len()    -> Datanın uzunluğunu verir.
-4- int(), float(), str()    -> Datanın tip dönüşümünü sağlar.
-5- input()  -> Kullanıcıdan veri alır. Not: Alınan bilgi her zaman string data type'ındadır.
-6- max() / min()    -> En büyük ve en küçük değeri verir.
-7- sum()    -> Toplama yapar.
-8- abs()    -> Mutlak değer alır.
-9- round()  -> Yuvarlama yapar.
-10- range() -> Döngülerde çok kullanılır. aralık belirlemek için kullanılır.
-11- sorted() -> Sıralama yapar.
+4- len()    -> Datanın uzunluğunu verir.
+5- int(), float(), str()    -> Datanın tip dönüşümünü sağlar.
+6- input()  -> Kullanıcıdan veri alır. Not: Alınan bilgi her zaman string data type'ındadır.
+7- max() / min()    -> En büyük ve en küçük değeri verir.
+8- sum()    -> Toplama yapar.
+9- abs()    -> Mutlak değer alır.
+10- round()  -> Yuvarlama yapar.
+11- range() -> Döngülerde çok kullanılır. aralık belirlemek için kullanılır.
+12- sorted() -> Sıralama yapar.
 
 Fonksiyon ve Metotların Farkı
 Fonksiyonlar bağımsızdır, metotlar bir nesneye bağldır.
