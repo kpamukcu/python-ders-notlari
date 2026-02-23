@@ -10,7 +10,7 @@ En Çok Kullanılan Gömülü Fonksiyonlar
 2- type()   -> Datanın veri türünü gösterir.
 3- isinstance(parametre, data türü) -> Veri tipi kontrolü yapar. true / false sonucu döner.
 3- len()    -> Datanın uzunluğunu verir.
-4- int(), float(), str()    -> Datanın tip dönüşümün sağlar.
+4- int(), float(), str()    -> Datanın tip dönüşümünü sağlar.
 5- input()  -> Kullanıcıdan veri alır. Not: Alınan bilgi her zaman string data type'ındadır.
 6- max() / min()    -> En büyük ve en küçük değeri verir.
 7- sum()    -> Toplama yapar.
@@ -63,4 +63,3 @@ for i in range(3):
 
 karmanCorman = [1,2,8,96,46,186,11]
 print(sorted(karmanCorman))
-
