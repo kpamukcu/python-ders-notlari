@@ -61,3 +61,24 @@ print(isimler)          ## Ekrana ['Hayko Cepkin', 'Mahmut Tuncer', 'Ajdar'] yaz
 ##Demetler (Tuple)
 koordinat = (10795,75449)
 print(koordinat[1])     ##Ekrana 75449 yazar.
+
+
+
+
+
+
+##Örnek
+# 1- 25 ekle
+# 2- 10'lardan ilkini sil
+# 3- Listeyi sırala
+# 4- Kaç tane 10 kaldığını yazdır
+
+liste = [5, 10, 15, 20, 10]
+
+liste.append(25)
+print(liste)
+liste.remove(10)
+print(liste)
+liste.sort()
+print(liste)
+print(liste.count(10))
