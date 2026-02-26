@@ -30,11 +30,14 @@ Liste Metotları
 
 Demetler (Tuple)
     - Listelere benzer yapıdadır.
-    - Parametreler değiştirilemez. (Immutable)
+    - Parametreler değiştirilemez (Immutable). Ancak parametrelerden biri listeyse o listenin değerleri değişebilir.
     - Parantez () ile tanımlanırlar.
     - Sabit veriler için kullanımı tercih edilir.
     - Performansı daha hızlıdır.
 
+Tuple Metotları (Sadece 2 tanedir)
+    - count(parametre)  -> Bir değerin liste içinde kaç tane olduğunu verir.
+    - index()   -> Parametrenin indexNo'sunu verir.
 
 """
 
