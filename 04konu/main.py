@@ -127,7 +127,7 @@ urun = {
     "stok": 20
 }
 
-urun["fiyat"] = 900
+urun["fiyat"] = 1000
 urun['kategori'] = "Supplement"
 print(urun["stok"])
 for key,value in urun.items():
