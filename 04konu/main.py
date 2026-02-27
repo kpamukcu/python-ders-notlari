@@ -34,7 +34,8 @@ del dictAdi["keyAdi"] veya dictAdi.pop('keyAdi')
 - pop('keyAdi')     -> ilgili key'i ve value'sunu siler
 - popitem() -> Son elemanı siler.
 - copy()    -> Dict'i kopyalar
-- clear()   -> Tüm sözlüğü boşlatır.        
+- clear()   -> Tüm sözlüğü boşlatır.
+- setdefault('olmayan key','Gelecek olan Değer') -> Eğer ilgili key yoksa oluşturup varsayıaln bir değer ataması yapar
 
 """
 
