@@ -9,7 +9,8 @@ while koşul:
 Genellikle Kullanım Mantığı
 ✔ Kullanıcıdan doğru veri alınana kadar
 ✔ Şifre doğru girilene kadar
-✔ Menü sistemi
+✔ Menü sistemi için
+
 
 """
 
