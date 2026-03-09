@@ -19,7 +19,10 @@ Framework -> Framework daha büyük bir yapıdır. Sana bir sistem sunar ve sen 
 import matematik                #matematik dosyası main.py dosyasına yüklendi. 
 matematik.topla(5,3)
 
-#Hazır Modül Kullanımı
+## ---------------------------------------- ##
+#### HAZIR KÜTÜPHANELER (RANDOM & DATETIME) ####
+#### RANDOM KÜTÜPHANESİ ####
+
 import random                   #Ön tanımlı random modülü main.py dosyasına yüklendi.
 
 #randint()  Rastgele sayı üretir. iki parametre alır.
@@ -55,3 +58,61 @@ Random Kütüphanesi Gerçek hayat Örnekleri
 
 """
 
+
+## ---------------------------------------- ##
+## DATETIME KÜTÜPHANESİ ##
+## Tarih ve saat işlemleri için kullanılır.
+## Belirli bir tarih oluşturmak için datetime() fonksiyonu parametre alabilir. Ör: datetime(Yıl, Ay, Gün)
+
+#import datetime                 # ön tanımlı datetime kütüphanesi import edildi
+from datetime import datetime    # Ön tanımlı datetime kütüphanesinden datetime modülü import edildi.
+
+simdi = datetime.now()  ## Şuanın tarih ve saat bilgisini yakalar.
+print(simdi)
+
+print(simdi.date())                 ## Şuanın sadece tarih bilgisini verir.
+print(simdi.strftime("%d-%m-%Y"))   ## Tarih ve saat bilgisini istediğimiz formatta vermeyi sağlar.
+
+""" 
+| Kod | Anlamı |
+| --- | ------ |
+| %d  | Gün    |
+| %m  | Ay     |
+| %Y  | Yıl    |
+| %H  | Saat   |
+| %M  | Dakika |
+"""
+
+print(simdi.time())     ## Şuanın sadece saat bilgisini verir.
+
+dogumGunu = datetime(1982,1,6)
+print(dogumGunu)
+
+t1 = datetime(1982,3,6)
+t2 = datetime.now()
+
+print(t2-t1)    #iki tarih arasındaki gün sayısını verir.
+
+
+
+""" 
+Örnek:
+1 ile 100 arasında rastgele sayı üret.
+Kullanıcı tahmin etsin.
+Doğruysa “Kazandın” yazsın.
+Yanlışsa tarih + saat ile birlikte “Yanlış tahmin” yazsın.
+"""
+
+sayi = random.randint(1,100)
+
+while True:
+    tahmin = int(input('1 ile 100 arasında bir sayı tahmin edin: '))
+    if sayi == tahmin:
+        print(f'{simdi.strftime("%d - %m - %Y / %H:%M")} - Doğru Tahmin')
+        break
+    else:
+        print(f'{simdi.strftime("%d - %m - %Y / %H:%M")} - Yanlış Tahmin')
+        devam = input('Tekrar Denemek İster misin? E / H: ').lower()
+        if devam == 'h':
+            print('Game Over')
+            break
