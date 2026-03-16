@@ -42,7 +42,6 @@ random.shuffle(userID)
 print(userID)
 
 """ 
-
 Random Kütüphanesi Gerçek hayat Örnekleri
 
 | Fonksiyon                   | Açıklama                                                    | Gerçek Hayatta Kullanım Örneği                                                    | Örnek Kod                                               |
@@ -64,6 +63,20 @@ Random Kütüphanesi Gerçek hayat Örnekleri
 ## Tarih ve saat işlemleri için kullanılır.
 ## Belirli bir tarih oluşturmak için datetime() fonksiyonu parametre alabilir. Ör: datetime(Yıl, Ay, Gün)
 
+
+""" 
+| Metot         | Ne Yapar                | Örnek                        |
+| ------------- | ----------------------- | ---------------------------- |
+| `now()`       | Şu anki tarih ve saat   | `datetime.now()`             |
+| `today()`     | Bugünün tarihi          | `datetime.today()`           |
+| `date()`      | Sadece tarihi verir     | `simdi.date()`               |
+| `time()`      | Sadece saati verir      | `simdi.time()`               |
+| `strftime()`  | Tarihi formatlar        | `strftime("%d-%m-%Y")`       |
+| `strptime()`  | String’i tarihe çevirir | `"2026-03-16"` → datetime    |
+| `timestamp()` | Unix zamanına çevirir   | `datetime.now().timestamp()` |
+"""
+
+
 #import datetime                 # ön tanımlı datetime kütüphanesi import edildi
 from datetime import datetime    # Ön tanımlı datetime kütüphanesinden datetime modülü import edildi.
 
@@ -83,7 +96,7 @@ print(simdi.strftime("%d-%m-%Y"))   ## Tarih ve saat bilgisini istediğimiz form
 | %M  | Dakika |
 """
 
-print(simdi.time())     ## Şuanın sadece saat bilgisini verir.
+print(simdi.time())     ## Şuanın saat bilgisini verir.
 
 dogumGunu = datetime(1982,1,6)
 print(dogumGunu)
@@ -116,3 +129,13 @@ while True:
         if devam == 'h':
             print('Game Over')
             break
+
+
+katilimcilar = ['Hayko','Mahmut','Bülent','Yıldız','Ajdar','Aleyna']
+kazananlar = random.sample(katilimcilar,2)  #katilimcilar listesinden rastgele 2 değer seçer.
+print(kazananlar)
+
+kazanan = random.choice(katilimcilar)
+print(kazanan)                              #katilimcilar listesinden rastgele 1 değer seçer.
+
+print(dir(random))
