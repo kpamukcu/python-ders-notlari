@@ -33,6 +33,16 @@ requests.get('https://siteadi.com')     -> Get isteği gönderir.
 .text                                   -> Web sayfasının kaynak kodlarını yakalar.
 
 
+Requests'in En Çok Kullanılan Metotları
+| Metot    | Açıklama         |
+| -------- | ---------------- |
+| get()    | veri almak       
+| post()   | veri göndermek   |
+| put()    | veri güncellemek |
+| delete() | veri silmek      |
+| patch()  | kısmi güncelleme |
+
+
 
 """
 
@@ -42,21 +52,20 @@ response = requests.get('https://acibademmobil.com.tr')
 print(response.status_code)                                 ##İlgili web sitesinin statü kodunu verir.
 
 print(requests.get('https://aribilgi.com').status_code)     ##İlgili web sitesinin statü kodunu verir.
-# print(response.text)                                        ##İlgili web sayfasının kaynak kodlarını yakalar.
-
+# print(response.text)                                      ##İlgili web sayfasının kaynak kodlarını yakalar.
 
 if response.status_code == 200:
     print('Site Yayında')
 
+### ---------- ###
+### Veri Çekme ###
+### ---------- ###
 
-##Veri Çekme
 jsonApi = requests.get('https://dummyjson.com/products')
 data = jsonApi.json()
-print(data['products'][0]['title'])
+# print(data['products'][0]['title'])
 
-##Parametre Gönderme
-import requests
-
+##Parametre Göndererek Veri Çekme
 parametreler = {
     "q" : "python",
     "sort" : "stars"
@@ -64,10 +73,12 @@ parametreler = {
 
 response = requests.get('https://api.github.com/search/repositories',params=parametreler) 
 ##Url Aslında https://api.github.com/search/repositories?q=python&sort=stars şeklinde get isteği atmış olur
+## print(response.json())
 
-print(response.json())
+### ---------------------------- ###
+### Post request (Veri Gönderme) ###
+### ---------------------------- ###
 
-##Post request (Veri Gönderme)
 loginInfo = {
     "log": "kaan",
     "pwd": "ZorSifre789**",
@@ -79,4 +90,31 @@ loginInfo = {
 res = requests.post('https://aribilgi.com/wp-login.php/', data=loginInfo)
 print(res.status_code)
 print(res.url)
+
+### --------------- ###
+### Header Gönderme ###
+### --------------- ###
+""" 
+Bazı Api'lar veri gönderirken de veri çekerken de şifreli olabilir.
+
+headers = {
+    "Authorization": "Bearer TOKEN"
+}
+"""
+
+headers = {
+    "Authorization": "Bearer TOKEN"
+}
+
+response = requests.get('https://dummyjson.com/auth/login', headers=headers)
+
+dummyRes = requests.get('https://raw.githubusercontent.com/kpamukcu/filmdata/refs/heads/main/film.json')
+print(dummyRes.headers)
+
+data = dummyRes.json()
+print(data[0]['Title'])             ## Ekrana Avatar Yazar
+
+for moviesName in data:
+    print(moviesName['Title'])      ## Ekrana film isimlerini yazar
+
 
