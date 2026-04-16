@@ -48,7 +48,7 @@ Requests'in En Çok Kullanılan Metotları
 
 import requests
 
-response = requests.get('https://acibademmobil.com.tr')
+response = requests.get('https://aribilgi.com')
 print(response.status_code)                                 ##İlgili web sitesinin statü kodunu verir.
 
 print(requests.get('https://aribilgi.com').status_code)     ##İlgili web sitesinin statü kodunu verir.
