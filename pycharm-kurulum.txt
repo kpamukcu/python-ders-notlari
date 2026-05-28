@@ -1,3 +1,6 @@
 1- https://www.jetbrains.com/pycharm/ adresinden IDE download edilir.
 2- Kurulum dosyası indikten sonra sağ tık yapıp yönetici olarak çalıştır seçeneği ile kurulum başlatılır.
-3- Kurulum ekranında "Update PATH Variable (Restart needed)" altındaki "Add bin folder to the PATH" seçeneği aktif edilmeldir.
+3- Kurulum ekranında "Update PATH Variable (Restart needed)" altındaki "Add bin folder to the PATH" seçeneği aktif edilmelidir.
+4- New Projects seçeğini tıklanarak proje klasörü oluşturmaya başlanır.
+5- Bu adımda Interpreter kurulumu önemli. Pc'de çalışması istenilen Python alt yapısı çevre bileşen olarak eklenmelidir.
+   En son güncel python versiyonu seçilir ve proje oluştur butonu tıklanır.
