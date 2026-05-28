@@ -4,6 +4,50 @@ Streamlit, Python ile çok hızlı şekilde web tabanlı arayüzler oluşturmay�
 Özellikle:
 Veri analizi, Yapay zeka projeleri, Dashboard, Veri görselleştirme, Makine öğrenmesi demo uygulamaları için çok popülerdir.
 
+Streamlit’in Güçlü Yanları
+
+✅ Çok hızlı geliştirme
+✅ Python bilen herkes kullanabilir
+✅ Veri bilimi için mükemmel
+✅ AI projeleri için ideal
+✅ Dashboard geliştirmek çok kolay
+
+Streamlit’in Zayıf Yanları
+
+❌ Büyük ölçekli web siteleri için uygun değil
+❌ Çok gelişmiş frontend kontrolü yok
+❌ Karmaşık kullanıcı yetkilendirme zor
+❌ E-ticaret tarzı projeler için ideal değil
+
+------------------------------------------------------------------------------
+
+Streamlit + Yapay Zeka
+Bugün en popüler kullanım alanlarından biri budur.
+
+Örnek:
+ChatGPT benzeri arayüz
+PDF analiz sistemi
+Veri dashboard
+AI chatbot
+Görsel analiz uygulamaları
+
+Özellikle:
+OpenAI API, Gemini API, Ollama, LangChain ile çok sık kullanılır.
+
+Öğrenme Sırası Önerisi
+Şu sırayla ilerlemek çok verimli olur:
+
+Temel Streamlit metotları
+Form yapıları
+Sidebar
+DataFrame + grafikler
+Session State
+Çok sayfalı uygulamalar
+API kullanımı
+Deploy işlemleri
+
+------------------------------------------------------------------------------
+
 Kurulumu:
 pip install streamlit (Windows)
 pip3 install streamlit (Mac)
@@ -81,5 +125,42 @@ st.selectbox('label',['Option 1','Option 2','Option 3'],index=None, placeholder=
 st.button('Tıkla')      -> Form butonu oluşturur.
 st.radio('Label',['Option 1','Option 2'])   -> Kullanıcıdan tek bir seçim yapması istenir.
 
+
+
+Streamlit Yayınlama (Deploy)
+Kodunu internete koyup herkesin erişmesini sağlanabilir.
+
+Yöntem 1 — Streamlit Community Cloud (En Kolay Yöntem)
+Adımlar:
+GitHub’a proje yükle
+Streamlit Cloud hesabı aç
+Repo seç
+Deploy et
+
+Resmi site: https://streamlit.io/cloud
+------------------------------------------------------------------------------
+Yöntem 2 — VPS Sunucu
+Ubuntu sunucuda: pip install streamlit
+
+Çalıştır: streamlit run app.py
+
+Port açılır: 8501
+
+Genelde:
+Nginx
+Reverse Proxy
+Domain
+bağlanır.
+------------------------------------------------------------------------------
+Yöntem 3 — Docker ile Deploy
+Özellikle profesyonel projelerde kullanılır.
+
+Örnek:
+FROM python:3.11
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+EXPOSE 8501
+CMD ["streamlit", "run", "app.py"]
 
  """
