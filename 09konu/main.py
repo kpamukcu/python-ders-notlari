@@ -42,8 +42,6 @@ Requests'in En Çok Kullanılan Metotları
 | delete() | veri silmek      |
 | patch()  | kısmi güncelleme |
 
-
-
 """
 
 import requests
