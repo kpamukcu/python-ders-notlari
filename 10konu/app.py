@@ -82,6 +82,13 @@ with login:
     st.title('Giriş Yap')
     user = st.text_input('',placeholder="Kullanıcı Adınızı Girin", label_visibility='collapsed')
     passw = st.text_input('',placeholder="Şifrenizi Girin", label_visibility="collapsed",type="password")
-    st.button('Giriş Yap')
+    btn = st.button('Giriş Yap')
 
-if 
+    if btn:
+        if user == 'hayko' and passw == '123':
+            st.success('Bilgiler Doğru')
+        else:
+            st.error('Bilgiler Hatalı')
+    else:
+        st.warning('Giriş Bilgilerinizi Girin')
+
