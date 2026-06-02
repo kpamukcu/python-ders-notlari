@@ -77,3 +77,11 @@ with signin:
     st.title('Üye Olun')
     st.text_input('',placeholder='Adınız Soyadınız', label_visibility='collapsed')
     st.text_input('',placeholder='E-Posta Adresiniz', label_visibility='collapsed')
+
+with login:
+    st.title('Giriş Yap')
+    user = st.text_input('',placeholder="Kullanıcı Adınızı Girin", label_visibility='collapsed')
+    passw = st.text_input('',placeholder="Şifrenizi Girin", label_visibility="collapsed",type="password")
+    st.button('Giriş Yap')
+
+if 
