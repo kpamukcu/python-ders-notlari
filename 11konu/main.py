@@ -11,7 +11,7 @@ requests.delete()   -> Veri Silmek için Kullanılır.
 """
 
 url = 'https://jsonplaceholder.typicode.com/users'      ## Json verilerinin olduğu adres
-jsonVeri = requests.get(url)                            ## Json dosyasından verileri çekti ve jsınVeri değişkenine atadı
+jsonVeri = requests.get(url)                            ## Json dosyasından verileri çekti ve jsonVeri değişkenine atadı
 
 ## print(jsonVeri.status_code) ##200 sonucunu dönmeli
 
