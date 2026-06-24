@@ -10,6 +10,11 @@ requests.patch()    -> Veri Güncellemek için kullanılır.
 requests.delete()   -> Veri Silmek için Kullanılır.
 """
 
+""" 
+GET metodu ile veri çekmek 
+degiskenAdi = requests.get('json dosya adresi')
+"""
+
 url = 'https://jsonplaceholder.typicode.com/users'      ## Json verilerinin olduğu adres
 jsonVeri = requests.get(url)                            ## Json dosyasından verileri çekti ve jsonVeri değişkenine atadı
 
@@ -36,6 +41,13 @@ for i in range(2,5):    #İndis2'den başlayıp indis4'e kadar yazdırır. indis
     print(veriler[i]['name'])
 
 
+#### mockAPI ile Canlı Örnek ####
+
+url2 = 'https://6a3bcbf2e4a07f202e15e17e.mockapi.io/products'
+data = requests.get(url)
+print(f'mockApi sonuç: {data}')
+
+
 """ 
 POST metodu ile veri gönderme 
 requests.post('veri gönderilecek json adresi', 'Gönderilecek Veri')
@@ -50,4 +62,13 @@ res = requests.post(
     json=veri
 )
 
-print(res) 
+print(res) ##201 response kodu dönmeli.
+
+
+"""
+PUT metodu ile veri güncelleme
+requests.put('veri gönderilecek json adresi/idNo', 'Gönderilecek YENİ Veri')
+
+Put Metodu ile bir kaydın tamamı güncellenir
+"""
+
