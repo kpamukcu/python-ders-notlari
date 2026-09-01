@@ -1,40 +1,32 @@
 import requests
 
-#### GET ile Veri Çekmek ####
-url = 'https://6a3bcbf2e4a07f202e15e17e.mockapi.io/products'
-data = requests.get(url)
-print(f'mockApi sonuç: {data}')
-print(data.status_code)
+## Get ile Veri Ekleme
+apiUrl = 'https://6a96c6a70e3240db90615e00.mockapi.io/urun'
+data = requests.get(apiUrl)
+
+## Statu Control
+print(data.status_code)    ## Ekrana 200 vermeli
+
+if data.status_code == 200:
+    while(True):
+        islem = input('Yapmak İstediğiniz İşlem: Y-> Yeni Kayıt, G-> Ürün Güncelle, D-> Ürün Sil')
+
+        if islem == 'Y':
+            product_name = input('Ürün Adını Girin: ')
+            product_brand = input('Markayı Girin: ')
+            product_price = int(input('Ürün Fİyatını Girin: '))
+
+            yeniUrun = {
+                "product_name" : product_name,
+                "product_brand" : product_brand,
+                "product_price" : product_price
+            }
+
+            res = requests.post(
+                apiUrl,
+                json=yeniUrun
+            )
+else:
+    print('Database Hatası')
+
 print(data.json())
-
-### POST ile Veri Göndermek ####
-
-def addProduct():
-    url = 'https://6a3bcbf2e4a07f202e15e17e.mockapi.io/products'
-    durum = input('Ürün Eklemek İstiyor musunuz? ')
-    if durum == 'y':
-        name = input('Marka Adını Girin: ')
-        price = int(input('Ücret Bilgisini Girin: '))
-        stock = int(input('Stok Girin: '))
-
-        newProduct = {
-            'name':name,
-            'price': price,
-            'stock':stock
-        }
-
-        res = requests.post(
-            url,
-            json=newProduct
-        )
-
-        print(res.json())
-    else:
-        print('İşlem İptal Edildi')
-        data = requests.get(url)
-        print(data.json())
-
-addProduct()
-
-
-
