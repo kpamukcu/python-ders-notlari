@@ -9,7 +9,7 @@ print(data.status_code)    ## Ekrana 200 vermeli
 
 if data.status_code == 200:
     while(True):
-        islem = input('Yapmak İstediğiniz İşlem: Y-> Yeni Kayıt, G-> Ürün Güncelle, D-> Ürün Sil')
+        islem = input('Yapmak İstediğiniz İşlem: Y-> Yeni Kayıt, G-> Ürün Güncelle, D-> Ürün Sil, L-> Ürün Listesi, X-> Çıkış ..: ')
 
         if islem == 'Y':
             product_name = input('Ürün Adını Girin: ')
@@ -26,6 +26,18 @@ if data.status_code == 200:
                 apiUrl,
                 json=yeniUrun
             )
+        elif islem == 'G':
+            print('Ürün Güncellendi')
+        elif islem == 'D':
+            print('Ürün Silindi')
+        elif islem == 'L':
+            urunListesi = data.json()
+            for urun in urunListesi:
+                for a,b in urun.items():
+                    print(f'{a}: {b}')            
+        elif islem == 'X':
+            print('Çıkış Yapıldı')
+            break
 else:
     print('Database Hatası')
 
