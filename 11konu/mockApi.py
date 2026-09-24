@@ -27,7 +27,23 @@ if data.status_code == 200:
                 json=yeniUrun
             )
         elif islem == 'G':
-            print('Ürün Güncellendi')
+            product_name= input('Güncel Ürün Adını Girin: ')
+            product_brand= input('Güncel Marka Adını Girin: ')
+            product_price= int(input('Güncel Ürün Fiyatını Girin: '))
+            product_id= int(input('Ürün Kodunu Girin: '))
+
+            urunGuncelle = {
+                "product_name" : product_name,
+                "product_brand" : product_brand,
+                "product_price" : product_price,
+                "id":product_id                
+            }
+
+            res = requests.put(
+                f'{apiUrl}/{urunGuncelle["id"]}',
+                json=urunGuncelle
+            )
+
         elif islem == 'D':
             print('Ürün Silindi')
         elif islem == 'L':
