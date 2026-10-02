@@ -11,7 +11,7 @@ if data.status_code == 200:
     while(True):
         islem = input('Yapmak İstediğiniz İşlem: Y-> Yeni Kayıt, G-> Ürün Güncelle, D-> Ürün Sil, L-> Ürün Listesi, X-> Çıkış ..: ')
 
-        if islem == 'Y':
+        if islem == 'Y':    ## Kayıt Ekleme POST
             product_name = input('Ürün Adını Girin: ')
             product_brand = input('Markayı Girin: ')
             product_price = int(input('Ürün Fİyatını Girin: '))
@@ -26,7 +26,7 @@ if data.status_code == 200:
                 apiUrl,
                 json=yeniUrun
             )
-        elif islem == 'G':
+        elif islem == 'G': ## Kayıt Güncelleme PUT (Tüm Veriler)
             product_name= input('Güncel Ürün Adını Girin: ')
             product_brand= input('Güncel Marka Adını Girin: ')
             product_price= int(input('Güncel Ürün Fiyatını Girin: '))
@@ -44,8 +44,31 @@ if data.status_code == 200:
                 json=urunGuncelle
             )
 
-        elif islem == 'D':
-            print('Ürün Silindi')
+        elif islem == 'P':     ## Kayıt Güncelleme PATCH (Tek veya seçilen birçok veri)
+            product_id = int(input('Ürün Kodunu Girin: '))
+            product_price = int(input('Güncel Ürün Ücretini Girin: '))
+
+            tekBilgiGuncelle ={
+                "product_price": product_price
+            } 
+            res = requests.patch(
+                f'{apiUrl}/{product_id}',
+                json=tekBilgiGuncelle
+            )
+            print('Ürün Adı Güncellendi')
+        elif islem == 'D': ## Kayıt Silme DELETE
+
+            urunSil = int(input('Silmek İstediğiniz Ürün Kodunu Girin: '))
+
+            res = requests.delete(
+                f'{apiUrl}/{urunSil}',
+            )
+
+            if res.status_code == 200:
+                print('Ürün Silindi')
+            else:
+                print('Bu ürün bulunamamıştır.')
+
         elif islem == 'L':
             urunListesi = data.json()
             for urun in urunListesi:
