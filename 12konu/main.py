@@ -58,7 +58,7 @@ kosucu = Runner(isim,yas,agirlik,boy)
 print(f"{kosucu.age} yaşındaki {kosucu.name}, {kosucu.weight} kiloda olup vücut kitle endeksi {kosucu.calculate_bmi()}")
 
 
-## VKE ve Performans Hesaplayıcı
+##Örnek -> VKE ve Performans Hesaplayıcı
 class Runner:
     def __init__(self,isim,yas,kilo,boy,sure10k):
         self.isim = isim
@@ -93,3 +93,46 @@ sumTime = int(input('Koşucunun Toplam Koşu Süresini dk cinsinden girin: '))
 kosucu = Runner(name,age,weight,height,sumTime)
 
 kosucu.show_info()
+
+
+kosucu_1 = Runner('Kaan',44,66,1.68,51.28)
+kosucu_2 = Runner('Ahmet',32,72,1.80,48.5)
+
+kosucu_1.show_info()
+kosucu_2.show_info()
+
+#amount -> Metoda attribute'larda olmayan bir yeni değeri dışarıdan göndermektir.
+#Örnek -> Banka Hesabı
+print('Banka Hesabı OOP Uygulaması')
+
+
+class BankAccount:
+    def __init__(self,owner, account_number, balance):
+        self.owner = owner
+        self.account_number = account_number
+        self.balance = balance
+
+    def show_balance(self):
+        print(f"{self.owner} hesabının bakiyesi: {self.balance}₺'dir.")
+
+    def deposit(self,paraYatir):
+        self.balance = self.balance + paraYatir
+        print(f'{self.owner} hesabına {paraYatir}₺ eklenmiş olup güncel bakiye: {self.balance}')
+
+    def withdraw(self,paraCek):          
+
+        if paraCek > self.balance:
+            print(f'Yetersiz Bakiye. Güncel Bakiyeniz: {self.balance}')
+        else:
+            self.balance = self.balance-paraCek
+            print(f'Hesabınızdan {paraCek}₺ çekilmiş olup güncel bakiyeniz: {self.balance}')
+
+
+account1 = BankAccount("Kaan", "TR001", 10000)
+account2 = BankAccount("Ahmet", "TR002", 5000)
+
+account1.show_balance()
+account2.show_balance()
+account1.deposit(5000)
+account1.withdraw(3000)
+account2.withdraw(20000)
