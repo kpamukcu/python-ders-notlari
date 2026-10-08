@@ -102,9 +102,44 @@ kosucu_1.show_info()
 kosucu_2.show_info()
 
 #amount -> Metoda attribute'larda olmayan bir yeni değeri dışarıdan göndermektir.
-#Örnek -> Banka Hesabı
-print('Banka Hesabı OOP Uygulaması')
+""" 
+🏦 Uygulama: Örnek3 -> Banka Hesabı
 
+Python'da Nesne Tabanlı Programlama (OOP) kullanarak basit bir banka hesabı uygulaması geliştiriniz.
+BankAccount adında bir sınıf oluşturunuz.
+Her banka hesabı için aşağıdaki bilgiler tutulmalıdır:
+Hesap sahibi
+Hesap numarası
+Bakiye
+
+Sınıf içerisinde aşağıdaki metotları oluşturunuz:
+
+1. show_balance()
+Hesap sahibinin adını ve mevcut bakiyesini ekrana yazdırmalıdır.
+
+2. deposit(amount)
+Hesaba dışarıdan verilen miktar kadar para yatırmalıdır. İşlem sonrasında güncel bakiyeyi ekrana yazdırmalıdır.
+
+3. withdraw(amount)
+Hesaptan dışarıdan verilen miktar kadar para çekmelidir.
+
+Eğer çekilmek istenen miktar mevcut bakiyeden büyükse "Yetersiz bakiye" mesajı gösterilmelidir.
+Yeterli bakiye varsa para çekilmeli ve güncel bakiye ekrana yazdırılmalıdır.
+Uygulama
+
+Aşağıdaki iki banka hesabını oluşturunuz:
+Kaan — Hesap No: TR001 — Bakiye: 10.000 TL
+Ahmet — Hesap No: TR002 — Bakiye: 5.000 TL
+
+Daha sonra:
+Her iki hesabın mevcut bakiyesini gösteriniz.
+Kaan'ın hesabına 5.000 TL yatırınız.
+Kaan'ın hesabından 3.000 TL çekiniz.
+Ahmet'in hesabından 20.000 TL çekmeyi deneyiniz.
+İşlemler sonrasında her iki hesabın güncel bakiyesini gösteriniz.
+
+"""
+print('Banka Hesabı OOP Uygulaması')
 
 class BankAccount:
     def __init__(self,owner, account_number, balance):
