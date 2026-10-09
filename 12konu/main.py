@@ -171,3 +171,83 @@ account2.show_balance()
 account1.deposit(5000)
 account1.withdraw(3000)
 account2.withdraw(20000)
+
+#Örnek 4 Öğrenci Not Ortamalası Hesaplama
+class Student:
+    def __init__(self,s1,s2,s3,name):
+        self.s1 = s1
+        self.s2 = s2
+        self.s3 = s3
+        self.name = name
+
+    def calculate_average(self):
+        return ((self.s1 + self.s2 + self.s3)/3)
+
+    def show_result(self):
+        print(f'{self.name} isimli öğrencinin not ortalaması: {self.calculate_average()}')
+
+
+sinav1 = int(input('Öğrencinin Vize 1 puanını girin: '))
+sinav2 = int(input('Öğrencinin Vize 2 puanını girin: '))
+sinav3 = int(input('Öğrencinin Vize 3 puanını girin: '))
+isim = input('Öğrennin Adını Soyadını Girin: ')
+
+ogrenci1 = Student(sinav1,sinav2,sinav3,isim)
+ogrenci1.show_result()
+
+### Miras Alma (Inheritance) ###
+#Örnek 4A Üniversite öğrencisi (Okuduğu Bölümü Ekle)
+class UniversityStudent(Student):
+    def __init__(self, s1,s2,s3,name, department):
+        super().__init__(s1,s2,s3,name)
+        self.department = department
+
+    def show_department(self):
+        print(f'{self.name} isimli öğrenci {self.department} bölümünde eğitim almaktadır.')
+
+uni_ogrenci_adi = input('Öğrencinin Adını Girin')
+exam1 = int(input('Öğrencinin Exam 1 Puanını Girin: '))
+exam2 = int(input('Öğrencinin Exam 2 Puanını Girin: '))
+exam3 = int(input('Öğrencinin Exam 3 Puanını Girin: '))
+bolum = input('Öğrencinin Bölümünü Girin')
+
+uni_student = UniversityStudent(exam1,exam2,exam3,uni_ogrenci_adi,bolum)
+
+uni_student.show_department()
+uni_student.show_result()
+
+# %% Örnek 5 - Inheritace + method overriding(Metot Ezme)
+### Eğer alt sınıfa üst sınıftaki metodun aynısı yazılırsa sistem alt sınıftaki metodu çalıştırır.
+
+#Üst Sınıf
+class Vehicle:
+    def __init__(self,brand,model,awd):
+        self.brand = brand
+        self.model = model
+        self.awd = awd
+
+    def show_info(self):
+        print(f'{self.brand} - {self.model} - {self.awd}')
+
+
+class Suv(Vehicle):
+    def __init__(self,brand,model,awd):
+        super().__init__(brand,model,awd)
+
+    def show_info(self):
+        print(f'{self.brand} - {self.model} - {self.awd}')
+
+arac_brand = input('Aracın Markasını Girin: ')
+arac_model = input('Aracın Modelini Girin: ')
+arac_awd = input('Araç SUV model mi? (e/h): ')
+
+if arac_awd == 'h':
+    SUV = False
+    normal_arac = Vehicle(arac_brand,arac_model,SUV)
+    normal_arac.show_info()
+else:
+    SUV = True
+    suv_arac = Suv(arac_brand,arac_model,SUV)
+    suv_arac.show_info()
+
+# %%
