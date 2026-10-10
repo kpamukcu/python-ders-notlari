@@ -221,18 +221,18 @@ uni_student.show_result()
 
 #Üst Sınıf
 class Vehicle:
-    def __init__(self,brand,model,awd):
+    def __init__(self,brand,model):
         self.brand = brand
         self.model = model
-        self.awd = awd
 
     def show_info(self):
-        print(f'{self.brand} - {self.model} - {self.awd}')
+        print(f'{self.brand} - {self.model} - Dört Çeker: Hayır')
 
 
 class Suv(Vehicle):
     def __init__(self,brand,model,awd):
-        super().__init__(brand,model,awd)
+        super().__init__(brand,model)
+        self.awd = awd
 
     def show_info(self):
         print(f'{self.brand} - {self.model} - {self.awd}')
@@ -243,7 +243,7 @@ arac_awd = input('Araç SUV model mi? (e/h): ')
 
 if arac_awd == 'h':
     SUV = False
-    normal_arac = Vehicle(arac_brand,arac_model,SUV)
+    normal_arac = Vehicle(arac_brand,arac_model)
     normal_arac.show_info()
 else:
     SUV = True
@@ -251,3 +251,54 @@ else:
     suv_arac.show_info()
 
 # %%
+
+
+""" 
+#### Encapsulation (Kapsülleme) ####
+
+Tanım: Kapsülleme, bir sınıfın verilerini ve bu veriler üzerinde işlem yapan metotları bir arada tutarak verilere erişimi ve verilerin değiştirilmesini kontrollü hâle getirme yaklaşımıdır.
+
+Amacı:
+
+Verilerin geçersiz değerler almasını önlemek.
+Nesnenin iç durumunu belirli kurallarla korumak.
+Veri değişikliklerini metotlar üzerinden yönetmek.
+Sınıfın kullanımını daha düzenli ve güvenilir hâle getirmek.
+
+Python'da kullanılan özellik yazımları:
+
+Yazım           Açıklama
+self.health     Doğrudan erişilebilen özellik.
+self._health    Dahili kullanım için olduğu belirtilen özellik; bir isimlendirme geleneğidir.
+self.__health   İsmin dönüştürülmesi (name mangling) sayesinde sınıf dışından doğrudan erişimi zorlaştırır.
+
+Örnek: Bir oyun karakterinin can puanının 0'ın altına düşmesini veya 100'ün üzerine çıkmasını engellemek için can puanını kontrol eden metotlar yazabiliriz.
+
+Önemli: Kapsülleme yalnızca değişken adının başına _ veya __ koymak değildir. Temel amaç, verilerin nasıl kullanılacağını ve değiştirileceğini kurallara bağlamaktır.
+"""
+
+class GameCharacter:
+    def __init__(self,name):
+        self.name = name
+        self.__health = 100
+
+    def take_damage(self,damage):
+        if damage > 0:
+            self.__health -= damage
+            if self.__health < 0:
+                self.__health = 0
+
+    def heal(self,amount):
+        if amount > 0:
+            self.__health += amount
+            if self.__health > 100:
+                self.__health = 100
+
+    def show_health(self):
+        print(self.__health)
+
+
+character = GameCharacter('Kaan')
+character.take_damage(30)
+character.show_health()
+## print(character.__health)    ## Dışarıdan erşim olduğu için hata verir.
