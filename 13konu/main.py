@@ -138,3 +138,5 @@ print(paces[::2])
 print(paces.min())
 print(paces.max())
 print(paces.mean())
+
+print(np.size(paces))       # Parametre sayısını verir.
