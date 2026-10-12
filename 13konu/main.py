@@ -131,7 +131,6 @@ paces = np.array([300,315,290,305,310])
 ## Her iki elemandan birini seçerek yeni ir çıktı oluştur.
 ## Dizinin en küçük ve en büyük değerlerini yazdır.
 ## Dizinin ortalamasını hesapla
-paces = np.array([300,315,290,305,310])
 print(paces[0])
 print(paces[-1])
 print(paces[2:5])
