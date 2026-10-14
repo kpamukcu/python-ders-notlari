@@ -140,3 +140,131 @@ print(paces.max())
 print(paces.mean())
 
 print(np.size(paces))       # Parametre sayısını verir.
+
+""" 
+NumPy Matrisleri
+Verileri satır ve sütunlar hâlinde düzenlemeyi ve analiz etmek. Matris, satır ve sütunlardan oluşan iki boyutlu sayısal bir yapıdır. NumPy'de bunu np.array() kullanarak oluşturabiliriz.
+
+Bir matrisin yapısını anlamak için .ndim, .shape, .size özelliklerini kullanmalıyız.
+
+"""
+
+data = np.array([
+    [300,315],
+    [290,305]
+])
+
+print(data)
+
+""" 
+Çıktısı:
+[[300 315]
+ [290 305]]
+
+Açıklama:
+2x2(2 Satır x 2 Sütun) NumPy Matrisi
+300 -> Satır 0 - Sütun 0
+315 -> Satır 0 - Sütun 1
+290 -> Satır 1 - Sütun 0
+305 -> Satır 1 - Sütun 1
+"""
+
+print(data.ndim)    ## ndim     -> Boyut sayısnı verir.
+print(data.shape)   ## shape    -> Satır ve Sütun sayısını verir.
+print(data.size)    ## size     -> Toplam eleman sayısını verir.
+
+## Örnek - Reklam Kampanyası
+## Veri yapımız şöyle:
+## Kampanya	    1. gün	2. gün
+## Kampanya A	120	    150
+## Kampanya B	80	    95
+## Kampanya C	200	    180
+## Burada her satır bir kampanyayı, her sütun ise bir günü temsil ediyor.
+## Bu düzen, verileri karşılaştırmayı ve analiz etmeyi kolaylaştırır. İlerleyen derslerde bu matrisin toplamını, ortalamasını, belirli satırlarını ve koşulu sağlayan değerlerini hesaplayacağız.
+
+clicks = np.array([
+    [120,150],
+    [80,95],
+    [200,150]
+])
+
+print(clicks)
+print(clicks.shape)
+
+""" 
+Matrislerde indeksleme
+tek boyutlu dizilerde paces[0] ile bir elemana erişebiliyoruz ancak iki boyutlu dizilerde hem satır hem sütun belirtmeliyiz.
+Ör: diziAdi[satirNo,sütunNo]
+"""
+
+print(clicks[0,0])  ## 120
+print(clicks[0,1])  ## 150
+print(clicks[1,0])  ## 80
+print(clicks[2,1])  ## 150
+
+print(clicks[0, :]) ## Bir satırın tamamını seçer [120,150]. ilk satırın tüm sütunlarını getirir.
+print(clicks[:,0])  ## Bir sütunun tamamını seçer [120,80,200]. Tüm Satıların ilk sütunu getirir.
+
+print(clicks[0:2, :])   ## İlk iki satırın tüm sütunlarını getirir.
+
+""" 
+Matrislerde Eleman Değiştirme
+Bir elemanı değiştirmek için satır ve sütun indekslerini kullanırız.
+"""
+
+clicks[0,1] = 160   ## İlk satırın ikinci elemanı 150 yerine 160 oldu.
+print(clicks)
+
+
+## Örnek - Mini Uygulama
+
+# 1. Matrisin boyut sayısını yazdır.    `ndim` kullan.
+# 2. Matrisin şeklini yazdır.   `shape` kullan.
+# 3. Toplam eleman sayısını yazdır. `size` kullan.
+# 4. İlk haftanın tüm antrenmanlarını yazdır. İlk satırı seç.
+# 5. İkinci haftanın üçüncü antrenmanını yazdır. İndekslerin sıfırdan başladığını unutma.
+# 6. Bütün haftaların ilk antrenmanlarını yazdır. Sütun seçmek için `:` kullan.
+# 7. Üçüncü haftanın ikinci antrenmanını 7 yerine 8 yap. İlgili elemanı değiştir ve matrisi tekrar yazdır.
+
+weekly_km = np.array([
+    [5,8,10],
+    [6,9,12],
+    [4,7,11]
+])
+
+
+
+print(weekly_km.ndim)   ## Boyut Sayısı     /   2 Boyut
+print(weekly_km.shape)  ## Şekil yapısı     /   (3,3)
+print(weekly_km.size)   ## Toplam parametre sayısı  /   9
+print(weekly_km[0,:])   ## İlk haftanın tüm parametreleri   /   [5,8,10]
+print(weekly_km[1,2])   ## ikinci haftanın 3. parametresi   /   12
+print(weekly_km[:,0])   ## Bütün haftaların ilk parametreleri   /   [5,6,4]
+weekly_km[2,1] = 8      ## 3.haftanın 2. parametresi 8 olarak değişti
+print(weekly_km)        ## [[ 5  8 10] [ 6  9 12]  [ 4  8 11]]
+
+""" 
+Matris Metotları
+veriyi analiz etmek ve anlamlı sonuçlar çıkarmak için matris metotları kullanılır.
+
+1- reshape(satirSayisi,sutunSayisi)    -> Matrisin Şeklini değiştirir. Bir dizinin elemanlarını değiştirmeden farklı bir boyut yapısında düzenlemei sağlar. Eleman sayısı korunmalıdır aksi taktirde hata verecektir.
+
+2- T    -> Matrisin transpozunu alır. Yani satırları sütunlara, sütunları satırlara dönüştürür. T aslında bir metot değil NumPy dizisinin bir özelliğidir.
+"""
+
+## reshape()
+numbers = np.array([1,2,3,4,5,6,7,8,9])
+matrixNumbers = numbers.reshape(3,3)    ## 3 satır 3 sütunlu olacak şekilde 2 boyutlu yapıya döndürür.
+print(matrixNumbers)
+
+
+## T    -> Transpoz alma
+
+matrixData = np.array([
+    [1,2,3],
+    [4,5,6]
+])
+
+print(matrixData.T)     ## Satırlar ile sütunlar yer değiştirdi. Transpoz'dan sonra 2 satır 3 sütunlu yapı, 3 satır 2 sütunlu yapıya döndü
+
+######### SUM'dan devam et ############
