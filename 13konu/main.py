@@ -328,7 +328,9 @@ weekly_km = np.array([
 
 print(weekly_km.sum())          ## 71
 print(weekly_km.sum(axis=0))    ## [15 24 32]
-print(weekly_km.mean(axis=1))   ## [7.3 9 7.3]
+print(weekly_km.mean(axis=1))   ## [7.3 9. 7.3]
 print(weekly_km.T)              ## [[5,6,4] [8,9,7] [9,12,11]]
 print(weekly_km.reshape(1,9))   ## [5,8,9,6,9,12,4,7,11]
 print(weekly_km.max())          ## 12
+
+##### NumPy Vektör Metotları kısımından devam et #####
