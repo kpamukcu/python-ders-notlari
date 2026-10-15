@@ -250,6 +250,21 @@ veriyi analiz etmek ve anlamlı sonuçlar çıkarmak için matris metotları kul
 1- reshape(satirSayisi,sutunSayisi)    -> Matrisin Şeklini değiştirir. Bir dizinin elemanlarını değiştirmeden farklı bir boyut yapısında düzenlemei sağlar. Eleman sayısı korunmalıdır aksi taktirde hata verecektir.
 
 2- T    -> Matrisin transpozunu alır. Yani satırları sütunlara, sütunları satırlara dönüştürür. T aslında bir metot değil NumPy dizisinin bir özelliğidir.
+
+3- sum()    -> Bir matrisin tüm elemanlarını toplamını hesaplar.
+               axis=0 parametresi -> Her sütunun toplamını verir.
+               axix=1 parametresi -> Her satırın toplamını verir.
+
+4- mean()   -> Bir dizinin veya matrisin aritmetik ortalamasını hesaplar.
+               axis=0 parametresi -> Her sütunun ortalamasını verir.
+               axix=1 parametresi -> Her satırın ortalamasını verir.
+
+5- min() ve max()   -> Bir dizinin ya da matris'in içindeki en küçük ve en büyük değeri verir.
+                       axis=0 parametresi -> Her sütunun en küçük ve/veya en büyük değerini verir.
+                       axix=1 parametresi -> Her satırın en küçük ve/veya en büyük değerini verir.
+
+6- flatten()    -> İki boyutlu bir matrisi tek oyutlu bir diziye dönüştürmek için kullanılır.
+
 """
 
 ## reshape()
@@ -265,6 +280,55 @@ matrixData = np.array([
     [4,5,6]
 ])
 
-print(matrixData.T)     ## Satırlar ile sütunlar yer değiştirdi. Transpoz'dan sonra 2 satır 3 sütunlu yapı, 3 satır 2 sütunlu yapıya döndü
+print(matrixData.T)             ## Satırlar ile sütunlar yer değiştirdi. Transpoz'dan sonra 2 satır 3 sütunlu yapı, 3 satır 2 sütunlu yapıya döndü
 
-######### SUM'dan devam et ############
+## sum()
+print(matrixData.sum())         ## Ekrana 21 yazar.
+print(matrixData.sum(axis=0))   ## Sütunların toplamı [5 7 9] sonucunu yazar.
+print(matrixData.sum(axis=1))   ## Satırların toplamı [ 6 15] sonucunu yazar.
+
+## mean()
+print(matrixData.mean())        ## Ekrana 3.5 yazar
+print(matrixData.mean(axis=0))  ## Ekrana [2.5 3.5 4.5] yazar.
+print(matrixData.mean(axis=1))  ## Ekrana [ 2. 5.] yazar.
+
+## min() ve max()
+print(matrixData.min())         ## Ekrana 1 yazar.
+print(matrixData.max())         ## Ekrana 6 yazar.
+print(matrixData.min(axis=0))   ## Ekrana [1 2 3] yazar.
+print(matrixData.max(axis=1))   ## Ekrana [3 6] yazar.
+print(matrixData.min(axis=1))   ## Ekrana [1 4] yazar.
+print(matrixData.max(axis=0))   ## Ekrana [4 5 6] yazar.
+
+## flatten()
+
+kosu = np.array([
+    [350,400,450],
+    [300,250,200],
+    [500,550,600]
+])
+
+print(kosu.flatten())
+
+""" 
+Örnek - Mini Uygulama
+
+1. Matrisin tüm elemanlarının toplamını bul. `sum()` kullan.
+2. Her sütunun toplamını hesapla. `axis=0` kullan.
+3. Her haftanın ortalama antrenman mesafesini bul. `mean()` ve `axis=1` kullan.
+4. Matrisin transpozunu yazdır. `T` özelliğini kullan.
+5. Matrisi 1 satır ve 9 sütundan oluşan bir yapıya dönüştür. `reshape(1, 9)` kullan.
+6. Matrisin en büyük değerini bul.
+"""
+weekly_km = np.array([
+    [5,8,9],
+    [6,9,12],
+    [4,7,11]
+])
+
+print(weekly_km.sum())          ## 71
+print(weekly_km.sum(axis=0))    ## [15 24 32]
+print(weekly_km.mean(axis=1))   ## [7.3 9 7.3]
+print(weekly_km.T)              ## [[5,6,4] [8,9,7] [9,12,11]]
+print(weekly_km.reshape(1,9))   ## [5,8,9,6,9,12,4,7,11]
+print(weekly_km.max())          ## 12
