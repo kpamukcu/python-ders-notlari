@@ -333,4 +333,61 @@ print(weekly_km.T)              ## [[5,6,4] [8,9,7] [9,12,11]]
 print(weekly_km.reshape(1,9))   ## [5,8,9,6,9,12,4,7,11]
 print(weekly_km.max())          ## 12
 
-##### NumPy Vektör Metotları kısımından devam et #####
+""" 
+NumPy Vektör Metotları
+
+Önceki metotlara ek olarak 
+.argmin()   -> En küçük değerin indeksini verir.
+.argmax()   -> En büyük değerin indeksini verir.
+
+Not: İndeksi bilindiğinde, o değerin hangi konumda olduğu bulunabilir veya başka bir dizide aynı konumdaki veriye ulaşılabilir.
+"""
+
+kosuPace = np.array([300, 315, 290, 305, 310])
+print(kosuPace.argmin())    ## 290 değerinin indisNo'su 2 yazar.
+print(kosuPace.argmax())    ## 315 değerinin indisNo'su 1 yazar.
+
+
+## Örnek - Mini Uygulama
+# En hızlı bölümün pace değerini, argmin() ile bulduğun indeksi kullanarak yazdır.
+# En yavaş bölümün pace değerini, argmax() ile bulduğun indeksi kullanarak yazdır.
+# paces dizisindeki değerleri küçükten büyüğe sıralamak için np.sort() kullan.
+
+paces = np.array([320,310,305,295,285])
+
+print(paces[paces.argmin()])    ## 285 değerini indis 4 ile bulur ve ekrana 285 yazar.
+print(paces[paces.argmax()])    ## 320 değerini indis 0 ile bulur ve ekrana 320 yazar.
+print(np.sort(paces))           ## [285 295 305 310 320]
+print(paces.mean())             ## Ekrana 303.0 yazar
+print(paces.min())              ## Ekrana 285 yazar
+print(paces.max())              ## Ekrana 320 yazar
+print(paces.sum())              ## Ekrana 1515 yazar
+
+
+""" 
+NumPy Matrislerinde Dört İşlem
+Toplama(+), Çıkarma(-), Bölme(/), Çarpma(*)
+Not: Aynı konumdaki elemanlar ile dört işlemi gerçekleştirir.
+"""
+
+week1 = np.array([
+    [5,8,10],
+    [6,9,12]
+])
+
+week2 = np.array([
+    [3,4,5],
+    [2,3,4]
+])
+
+## TOPLAMA (+)
+print(week1 + week2)
+
+## ÇIKARMA (-)
+print(week1 - week2)
+
+## ÇARPMA (*)
+print(week1 * week2)
+
+## BÖLME (/)
+print(week1 / week2)
