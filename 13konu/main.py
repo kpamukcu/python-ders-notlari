@@ -382,6 +382,7 @@ week2 = np.array([
 
 ## TOPLAMA (+)
 print(week1 + week2)
+print(week1 + 2)        ## Her bir parametreyi 2 ile toplar
 
 ## ÇIKARMA (-)
 print(week1 - week2)
@@ -391,3 +392,39 @@ print(week1 * week2)
 
 ## BÖLME (/)
 print(week1 / week2)
+
+## Örnek - Mini Uygulama
+# A + B = ?
+# A - B = ?
+# A * B = ?
+# A / B = ?
+# A + 5 = ?
+# B * 3 = ?
+# A ve B matrislerini kullanarak eleman bazlı çarpım sonucunu result isimli bir değişkene ata ve yazdır.
+# A matrisindeki bütün değerleri 2 ile böl ve sonucu yazdır.
+# A matrisinden B matrisini çıkar, ardından ortaya çıkan matrisin toplamını sum() ile hesapla.
+
+A = np.array([
+    [10,20,30],
+    [40,50,60]
+])
+
+B = np.array([
+    [2,4,5],
+    [8,10,12]
+])
+
+print(A+B)
+print(A-B)
+print(A*B)
+print(A/B)
+print(A + 5)
+print(B * 3)
+
+result = A * B
+print(result)
+print(A/2)
+C = A - B
+print(C.sum())
+
+#### NumPy Matrislerinde Filtreleme'den devam et ####
