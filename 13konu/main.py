@@ -617,3 +617,5 @@ print(np.shape(result1))
 print(np.shape(result2))
 print(np.shape(result3))
 print(np.shape(result4))
+
+##### NumPy Matris Oluşturma Metotları konusundan devam et ######
