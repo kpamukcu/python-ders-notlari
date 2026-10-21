@@ -427,4 +427,193 @@ print(A/2)
 C = A - B
 print(C.sum())
 
-#### NumPy Matrislerinde Filtreleme'den devam et ####
+""" 
+NumPy Matrislerinde Filtreleme
+Verilerin içinden yalnızca istenilen değerleri almak için kullanılır.
+
+
+Operatör	    Anlamı	                Örnek
+>	            Büyüktür	            weekly_km > 9
+<	            Küçüktür	            weekly_km < 6
+>=	            Büyük veya eşittir	    weekly_km >= 9
+<=	            Küçük veya eşittir	    weekly_km <= 5
+==	            Eşittir	                weekly_km == 10
+!=	            Eşit değildir	        weekly_km != 10
+"""
+
+## 1- Koşullu Filtreleme ##
+## Ör: 9km'den daha büyük değerleri bulma
+weekly_km = np.array([
+    [5,8,10],
+    [6,9,12],
+    [4,7,11]
+])
+
+print(weekly_km > 9)
+
+""" 
+[[False False  True]
+ [False False  True]
+ [False False  True]]
+
+ response döner.
+ NumPy her parametreyi tek tek kontrol eder 9'dan büyük olan değerler true 9'a eşik ve küçük olan değerlere false ataması yapar.
+
+ Ancak bu hangi değerin koşulu sağladığını gösterir. Gerçek değeri almak için filtreyi doğrudan diziye uygularız.
+"""
+
+print(weekly_km[weekly_km>9])   ## Ekrana [10 12 11] yazar.
+
+## Ör: 6km'den az olan değerleri yazdırın
+print(weekly_km[weekly_km<6])   ## Ekrana [5 4] yazar.
+
+
+## 2- Birden fazla koşulu birleştirmek
+# Gerçek veri analizinde çoğu zaman tek bir koşul yeterli olmaz.
+# Örneğin, "6 veya daha fazla" ve "10 veya daha az" kilometre olan değerleri seçmek isteyebiliriz.
+# Örneğin "5'ten Küçük" veya "10'dan Büyük" kilometre olan değerleri seçmek isteyebiliriz.
+# NumPy'de birden fazla koşul için & (ve) ve | (veya) operatörlerini kullanırız.
+# Önemli: Birden fazla koşul kullanırken her koşulu paranteze alınmalı.
+
+print(weekly_km[(weekly_km >= 6) & (weekly_km <= 10)])     ## Ekrana [ 8 10  6  9  7] yazar.
+print(weekly_km[(weekly_km < 5) | (weekly_km > 10)])       ## Ekrana [12 4 11] yazar.
+
+
+## Filtrelenen değeri değiştirmek
+## İstersek filtrelenen veriyi değiştirebiliriz.
+
+weekly_km[weekly_km > 10] = 10
+print(weekly_km)
+
+### Örnek - Mini Uygulama ###
+# 8'den büyük değerleri filtrele.
+# 5'ten küçük veya 10'a eşit değerleri filtrele. 
+# 6 veya daha büyük ve 10 veya daha küçük değerleri filtrele.
+# 12 değerinin bulunduğu konumu True olarak yazdır.
+# 10'dan büyük değerleri 10 olarak değiştir ve matrisi yazdır.
+
+weekly_km = np.array([
+    [5, 8, 10],
+    [6, 9, 12],
+    [4, 7, 11]
+])
+
+print(weekly_km[weekly_km > 8])
+print(weekly_km[(weekly_km < 5) | (weekly_km == 10)])
+print(weekly_km[(weekly_km >= 6) & (weekly_km<=10)])
+print(weekly_km == 12)
+
+weekly_km[weekly_km>10] = 10
+print(weekly_km)
+
+
+""" 
+NumPy Matrislerinde Birleştirme
+
+
+Birbirinden farklı NumPy Dizi ve vektörlerini birleştirme için kullanılır.
+.concatenate()
+.vstack()
+.hstack()
+"""
+
+## Örneğin iki farklı matrislerini birleştirme
+
+week1 = np.array([
+    [5,8,10],
+    [6,9,12]
+])
+
+week2 = np.array([
+    [4,7,11],
+    [5,8,10]
+])
+
+
+""" 
+np.concatenate()     bu metot ile belirtilecek eksen yönünde diziler birleştirilir.
+İki matrisi satır ve sütun yönünde birleştirme    -> axis=0 ve axis=1
+Önemli kural: concatenate() kullanırken birleştirme yaptığın eksen dışındaki boyutların aynı olması gerekir.
+- axis=0: Sütun sayıları eşit olmalı.
+- axis=1: Satır sayıları eşit olmalı.
+"""
+
+result = np.concatenate((week1,week2), axis=0)
+print(result)
+
+""" 
+[[ 5  8 10]
+ [ 6  9 12]
+ [ 4  7 11]
+ [ 5  8 10]]
+"""
+
+
+result = np.concatenate((week1,week2), axis=1)
+print(result)
+
+""" 
+[[ 5  8 10  4  7 11]
+ [ 6  9 12  5  8 10]]
+"""
+
+
+#### np.vstack() Dikey Birleştirme ve np.hstack() yatay birleştirme
+
+vresult = np.vstack((week1,week2))
+print(vresult)
+
+"""
+Sonuç axis=0 ile aynıdır.
+
+[[ 5  8 10]
+ [ 6  9 12]
+ [ 4  7 11]
+ [ 5  8 10]]
+"""
+
+hresult = np.hstack((week1,week2))
+print(hresult)
+
+""" 
+Sonuç axis=1 ile aynıdır.
+
+[[ 5  8 10  4  7 11]
+ [ 6  9 12  5  8 10]]
+"""
+
+## Not: vstack() ve hstack() farklı boyutlu dizilerde de kullanılabilir; ancak boyutların birleştirme işlemine uygun olması gerekir.
+
+
+## Örnek - Mini Uygulama
+# np.concatenate() kullanarak iki matrisi alt alta birleştir.
+# np.concatenate() kullanarak iki matrisi yan yana birleştir.
+# np.vstack() ile iki matrisi birleştir.
+# np.hstack() ile iki matrisi birleştir.
+# Dört sonucun da shape değerini yazdır.
+
+
+week1 = np.array([
+    [5, 8],
+    [6, 9]
+])
+
+week2 = np.array([
+    [10, 12],
+    [11, 13]
+])
+
+
+result1 = np.concatenate((week1,week2), axis=0)
+result2 = np.concatenate((week1,week2), axis=1)
+result3 = np.vstack((week1,week2))
+result4 = np.hstack((week1,week2))
+
+print(result1)
+print(result2)
+print(result3)
+print(result4)
+print(np.shape(result1))
+print(np.shape(result2))
+print(np.shape(result3))
+print(np.shape(result4))
