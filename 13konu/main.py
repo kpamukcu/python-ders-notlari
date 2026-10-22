@@ -618,4 +618,49 @@ print(np.shape(result2))
 print(np.shape(result3))
 print(np.shape(result4))
 
-##### NumPy Matris Oluşturma Metotları konusundan devam et ######
+""" 
+NumPy Matris Oluşturma Metotları
+
+Projelerde sayısal verileri analiz ve hesaplamaya hazırlamak için kullanılır.
+- np.zeros(): Sıfırlardan oluşan dizi oluşturur.
+- np.ones(): Birlerden oluşan dizi oluşturur.
+- np.full(): Belirli bir değerle dolu dizi oluşturur.
+- np.arange(): Belirli adımlarla sayısal değerler üretir.
+- np.linspace(): İki sınır arasında belirli sayıda eşit aralıklı değer üretir.
+- np.random.randint(): Rastgele tam sayılar üretir.
+- np.random.random(): Rastgele ondalıklı sayılar üretir.
+Kullanım alanları: Finansal analiz, sağlık, görüntü işleme, yapay zekâ, bilimsel hesaplama, simülasyon ve üretim sistemleri.
+
+Temel amaç: Sayısal verileri oluşturmak, düzenlemek ve sonraki hesaplamalara hazır hâle getirmek.
+
+İhtiyaç olan veri yapısını oluşturmak, hesaplamaları başlatmak veya bir sistemi gerçek veriye geçmeden önce test etmek için kullanılırlar.
+"""
+
+## np.zeros()   -> Sıfırdan oluşan dizi
+data = np.zeros((3,2))      ## 3 Satır 2 sütun boyutlu 0.'lardan oluşan dizi yapısı oluşturur. Varsayılan olarak ondalıklı üretir.
+print(data)
+
+
+## np.ones()    -> Birlerden oluşan dizi
+data = np.ones((2,3))       ## 2 satır 3 sütun boyutlu 1.'lardan oluşan dizi data oluşturur. Varsayılan olarak ondalıklı üretir.
+print(data)
+
+
+## np.full()    -> Belirli bir değerle doldurma
+data = np.full((4,3), 5.5)
+print(data)
+
+
+## np.arange(Başlangıç Değeri, Bitiş Değeri, Artış Miktarı)  -> Belirli aralıklarla değer üretme. Not: Bitiş değeri dahil değildir
+data = np.arange(5,10,1)
+print(data)
+
+
+## np.linspace(Başlangıç Değeri, Bitiş Değeri, Oluşturulacak Değer Sayısı)  -> Belirli bir sayıda eşit aralıklı değer üretme
+data = np.linspace(5,10,3)
+print(data)     ## Ekrana [ 5.   7.5 10. ] yazar.
+
+
+## np.random.randint(Dahil Olan Alt Sınır, Dahil Olmayan Üst Sınır, size=(satır,sütun))
+data = np.random.randint(50,100, size=(3,2))
+print(data)
