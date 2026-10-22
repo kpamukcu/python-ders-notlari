@@ -83,6 +83,8 @@ Bir DataFrame'i bir Excel tablosunun tamamı, Series'i ise o tablonun tek bir s�
 
 ##### DataFrame Oluşturma #####
 ## sözlük(dictionary) yapısını DataFrame içine verme.
+## pd.DataFrame(degisken ya da parametre) -> İlgili veriyi tablo haline dönüştürür.
+## Önemli Not: dataların uzunlukları eşit olmalıdır aksi taktirde hata verecektir.
 
 veriler = {
     "Ürün" : ["Klavye","Mouse","Monitör"],
@@ -91,4 +93,29 @@ veriler = {
 }
 
 df = pd.DataFrame(veriler)      ## Dictionary yapısındaki datayı DataFrame ile tabloya dönüştürdü.
+print(df)                       ## Data tablo halinde görünür.
+
+
+""" 
+**** ÖRNEK ****
+
+Bir çevrim içi kitap mağazasında şu veriler bulunuyor:
+- Kitap: "Python", "SQL", "Excel"
+- Stok: 10, 5, 8
+- Fiyat: 350, 250, 180
+
+Veriler adında bir sözlük oluşturun, ardından bunu df adlı bir DataFrame'e dönüştürüp ve tabloyu ekrana yazdırın.
+"""
+
+veriler = {
+    "Kitap":["Python","SQL","Excel"],
+    "Stok":[10,5,8],
+    "Fiyat":[350,250,180]
+}
+
+df = pd.DataFrame(veriler)
+
 print(df)
+
+
+############## Pandas Serileri (Series) devam et ##############
