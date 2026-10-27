@@ -6,9 +6,9 @@ PANDAS
 Çalışma Şekli
 Ham Veri (CSV, Excel, SQL) -> Pandas DataFrame (Veriyi düzenle, incele, temizle) -> Analiz ve Rapor (Hesaplamalar · Filtreler · İş kararları)
 
-Örneğin satış dosyasındaki her sipariş için adet × birim fiyat hesabını yapabilir, ardından kategori bazında gelirleri kaşılaştırabilir. Böylece yalnızca veriyi göstermekle kalmaz, veriden anlamlı sonuçlar da çıkarılabilir.
+Örneğin satış dosyasındaki her sipariş için adet × birim fiyat hesabını yapabilir, ardından kategori bazında gelirleri karşılaştırabilir. Böylece yalnızca veriyi göstermekle kalmaz, veriden anlamlı sonuçlar da çıkarılabilir.
 
-- Pandas kütüphansesi projeye import edilmelidir.
+- Pandas kütüphanesi projeye import edilmelidir.
 import pandas as pd
 
 """
@@ -67,7 +67,7 @@ Bu tablonun tamamı bir DataFrame olabilir.
 - Hücre (cell): Bir satırla sütunun kesişimindeki tek bir değerdir.
 
 Gerçek bir projede ne işe yarar?
-Diyelim ki şirkete ait 50.000 sipariş içeren bir dosya mevcut ve şu soruların yanıtlarını isteniyor:
+Diyelim ki şirkete ait 50.000 sipariş içeren bir dosya mevcut ve şu soruların yanıtları isteniyor:
 
 - Hangi ürün en çok satılmış?
 - Toplam satış tutarı ne kadar?
@@ -118,4 +118,68 @@ df = pd.DataFrame(veriler)
 print(df)
 
 
-############## Pandas Serileri (Series) devam et ##############
+############## Pandas Serileri (Series) ##############
+## Series, Pandas'ın tek boyutlu veri yapısıdır. Değerleri ve bu değerlere karşılık gelen indeksleri içerir.
+## Bir listeyi(dizi datayı) pd.Series() içine vererek Series oluşturabilir.
+
+stoklar = pd.Series([10,5,8])
+print(stoklar)
+print(stoklar.sum())    ## Toplam stok miktarı
+print(stoklar.mean())   ## Ortalama stok miktarı
+
+
+## Örnek
+## Bir kitap mağazasının satış verileri şöyle 12,7,15,4
+## Bu verilerden bir Series oluşturup toplam satış adedini ekrana yazdırın.
+
+satislar = pd.Series([12,7,15,4])
+print(satislar)
+print(satislar.sum())
+
+
+### Pandas'ta Index ve Columns ###
+
+
+veriler = {
+    "Kitap": ["Python", "SQL", "Excel"],
+    "Stok": [10, 5, 8],
+    "Fiyat": [350, 250, 180]
+}
+
+df = pd.DataFrame(veriler)
+print(df)
+
+print(df.index)
+print(df.columns)
+
+## Kolon isimlerini güncelleme
+dfr = df.rename(columns={'Fiyat':'Birim Fiyat'})
+print(dfr)
+
+## Index bilgisi güncelleme
+dfr.index = ['urun-01','urun-02','urun-03']
+print(dfr)
+
+
+
+### ÖRNEK
+### Sütun adlarını ekrana yazdırın
+### Satır indekslerini ekrana yazdırın
+### Fiyat sütununun adını Birim Fiyat olarak değiştirin
+### Yeni sütun adlarını tekrar ekrana yazdır
+
+veriler = {
+    'Kitap':['Python','SQL','Excel'],
+    'Stok':[10,5,8],
+    'Fiyat':[350,250,180]
+}
+
+df = pd.DataFrame(veriler)
+print(df)
+
+print(df.columns)
+print(df.index)
+print(df.rename(columns={'Fiyat':'Birim Fiyat'}))
+print(df.columns)
+
+#### Pandas Metotları'ndan devam et ####
