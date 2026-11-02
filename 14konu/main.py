@@ -182,4 +182,23 @@ print(df.index)
 print(df.rename(columns={'Fiyat':'Birim Fiyat'}))
 print(df.columns)
 
-#### Pandas Metotları'ndan devam et ####
+""" 
+#### Pandas Metotları ####
+
+-   .head() -> Varsayılan haliyel ilk 5 satırı getirir. Parametre parantezine sayı verilirse istenilen sayıda ilk satırlar görüntülenebilir.
+-   .tail() -> Varsayılan haliyel son 5 satırı getirir. Parametre parantezine sayı verilirse istenilen sayıda son satırlar görüntülenebilir.
+
+"""
+
+veriler = {
+    "Urun": ["Klavye", "Mouse", "Monitör", "Kulaklık", "Webcam", "HarDisk"],
+    "Adet": [12, 25, 8, 15, 10, 20],
+    "Fiyat": [750, 400, 5200, 1250, 1800, 2000]
+}
+
+df = pd.DataFrame(veriler)
+
+print(df.head())        # Varsayılan olarak ilk 5 kaydı verir.
+print(df.head(2))       # parametre olarak 2 değeri gildiği için ilk 2 kaydı verir.
+print(df.tail())        # Varsayılan olarak son 5 kaydı verir.
+print(df.tail(2))       # parametre olarak 2 değeri gildiği için son 2 kaydı verir.
