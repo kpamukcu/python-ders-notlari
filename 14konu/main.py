@@ -139,7 +139,6 @@ print(satislar.sum())
 
 ### Pandas'ta Index ve Columns ###
 
-
 veriler = {
     "Kitap": ["Python", "SQL", "Excel"],
     "Stok": [10, 5, 8],
@@ -185,8 +184,14 @@ print(df.columns)
 """ 
 #### Pandas Metotları ####
 
--   .head() -> Varsayılan haliyel ilk 5 satırı getirir. Parametre parantezine sayı verilirse istenilen sayıda ilk satırlar görüntülenebilir.
--   .tail() -> Varsayılan haliyel son 5 satırı getirir. Parametre parantezine sayı verilirse istenilen sayıda son satırlar görüntülenebilir.
+-   .head() -> Varsayılan haliyle ilk 5 satırı getirir. Parametre parantezine sayı verilirse istenilen sayıda ilk satırlar görüntülenebilir.
+-   .tail() -> Varsayılan haliyle son 5 satırı getirir. Parametre parantezine sayı verilirse istenilen sayıda son satırlar görüntülenebilir.
+-   .describe() -> Sayısal sütunlar için adet, ortalama, standart sapma, minimum, çeyrekler ve maksimum gibi istatistikleri gösterir.
+-   .info() -> Satır sayısını, sütunları, veri tiplerini ve dolu değer sayılarını gösterir. Eksik verileri araştırırken çok işe yarar.
+-   .sum()  -> Seçilen sütunun toplamını hesaplar. Series üzerinde kullandığımız metotların DataFrame sütunlarında da uygulanmasına örnektir.
+        Ör: df["Adet"].sum()    -> Adet sütunun toplamı
+-   .mean() -> Seçilen sütunun ortalamasını hesaplar. Series üzerinde kullandığımız metotların DataFrame sütunlarında da uygulanmasına örnektir.
+        Ör: df["Fiyat"].mean()  -> Fiyat sütunun ortalaması
 
 """
 
@@ -199,6 +204,58 @@ veriler = {
 df = pd.DataFrame(veriler)
 
 print(df.head())        # Varsayılan olarak ilk 5 kaydı verir.
-print(df.head(2))       # parametre olarak 2 değeri gildiği için ilk 2 kaydı verir.
 print(df.tail())        # Varsayılan olarak son 5 kaydı verir.
 print(df.tail(2))       # parametre olarak 2 değeri gildiği için son 2 kaydı verir.
+
+
+""" 
+### Örnek - Mini Uygulama ###
+Yukarıdaki df tablosunu oluşturduğunu varsay. Şimdi şu üç görevi yerine getirecek kodu yaz:
+- İlk 3 ürünü göster.
+- Veri setinin yapısını ve sütun bilgilerini kontrol et.
+- Ürünlerin toplam stok miktarını hesapla.
+"""
+print('**** Mini Uygulama 1 ****')
+print(df.head(3))       # parametre olarak 3 değeri gildiği için ilk 3 kaydı verir.
+print(df.info())
+print(df['Adet'].sum())
+
+
+
+""" 
+### Series Metotları ###
+
+-   .sum()  -> Bütün satış adetlerini toplar.
+-   .mean() -> Satışların aritmetik ortalamasını hesaplar.
+-   .max() ve .min()    -> En yüksek ve en düşük satış miktarlarını bulur.
+-   .count()    -> Dolu değer sayısı. Eksik olmayan değerlerin sayısını verir.
+-   .value_counts() -> Değerlerin tekrar sayısı. Her değerin kaç kez tekrarlandığını gösterir.
+-   .unique()   ->  Benzersiz değerler. Tekrarlanan değerleri bir kez gösterir.
+-   .nunique()  ->  Benzersiz değer sayısı. Kaç farklı değer bulunduğunu sayar.
+"""
+
+
+siparisler = pd.Series([5,8,5,12,8,5,15,12,20,8])
+
+""" 
+Örnek - Mini uygulama 2
+
+1- Toplam sipariş adedini hesaplayın.
+2- Günlük ortalama sipariş miktarını hesaplayın.
+3- En yüksek sipariş miktarını bulun.
+4- Kaç farklı sipariş miktarı olduğunu bulun.
+5- Hangi sipariş miktarının kaç kez tekrarlandığını gösterin.
+"""
+print('*** Mini Uygulama 2***')
+print(siparisler.sum())
+print(siparisler.mean())
+print(siparisler.max())
+print(siparisler.unique())
+print(siparisler.nunique())
+print(siparisler.value_counts())
+
+
+""" 
+#### DataFrame Metotları ####
+
+"""
