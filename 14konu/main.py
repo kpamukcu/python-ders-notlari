@@ -280,3 +280,5 @@ print(df.shape)
 print(df.columns)
 print(df.dtypes)
 print(df.info())
+
+##### describe() metodundan devam et #####
