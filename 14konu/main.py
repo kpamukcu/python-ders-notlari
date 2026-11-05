@@ -258,4 +258,25 @@ print(siparisler.value_counts())
 """ 
 #### DataFrame Metotları ####
 
+-   .shape      -> Tablo boyutunu verir. Ör:(6,5) yani 6 satır 5 sütun. Not: Bu bir metot değil bir DataFrame özelliğidir. Bu yüzden parantezi yoktur.
+-   .columns    -> Sütun isimlerini verir. Not: Bu bir metot değil bir DataFrame özelliğidir. Bu yüzden parantezi yoktur.
+-   .dtypes     -> Sütunların veri tiplerini verir. Not: Bu bir metot değil bir DataFrame özelliğidir. Bu yüzden parantezi yoktur.
+-   .info()     -> Tablo hakkında genel bir bilgi verir. Satır sayısı, sütun sayısı, veri tipleri ve boş olmayan değer sayıları gibi bilgileri verir.
+
 """
+
+veriler = {
+    "Urun": ["Laptop", "Mouse", "Klavye", "Monitor", "Kulaklik", "Webcam"],
+    "Kategori": ["Bilgisayar", "Aksesuar", "Aksesuar", "Bilgisayar", "Aksesuar", "Aksesuar"],
+    "Stok": [12, 35, 20, 8, 15, 10],
+    "Fiyat": [25000, 750, 1200, 8500, 1800, 2200],
+    "Satis": [8, 25, 12, 5, 10, 7]
+}
+
+df = pd.DataFrame(veriler)
+
+print(df)
+print(df.shape)
+print(df.columns)
+print(df.dtypes)
+print(df.info())
