@@ -262,6 +262,11 @@ print(siparisler.value_counts())
 -   .columns    -> Sütun isimlerini verir. Not: Bu bir metot değil bir DataFrame özelliğidir. Bu yüzden parantezi yoktur.
 -   .dtypes     -> Sütunların veri tiplerini verir. Not: Bu bir metot değil bir DataFrame özelliğidir. Bu yüzden parantezi yoktur.
 -   .info()     -> Tablo hakkında genel bir bilgi verir. Satır sayısı, sütun sayısı, veri tipleri ve boş olmayan değer sayıları gibi bilgileri verir.
+-   .describe() -> Sayısal verilerin istatiksel özeti
+-   .sum()      -> Sütunların toplamı
+-   .mean()     -> Sütunların ortalaması
+-   .value_counts() -> Değerlerin tekrar sayısı. data üzerinden belirli bir sütun çekilerek kullanılır.
+
 
 """
 
@@ -280,5 +285,68 @@ print(df.shape)
 print(df.columns)
 print(df.dtypes)
 print(df.info())
+print(df.describe())
+print(df.sum(numeric_only=True))    ## numeric_only=True sadece sayılsal değerlerin toplamını verir.
+print(df['Kategori'].value_counts())
 
-##### describe() metodundan devam et #####
+
+""" 
+Örnek - Mini Uygulama
+veriler = {
+    "Urun": ["Laptop", "Mouse", "Klavye", "Monitor", "Kulaklik", "Webcam"],
+    "Kategori": ["Bilgisayar", "Aksesuar", "Aksesuar", "Bilgisayar", "Aksesuar", "Aksesuar"],
+    "Stok": [12, 35, 20, 8, 15, 10],
+    "Fiyat": [25000, 750, 1200, 8500, 1800, 2200],
+    "Satis": [8, 25, 12, 5, 10, 7]
+}
+
+Ürün envanteri raporu
+
+Şirket yöneticisi ürün envanteri hakkında bir rapor istiyor.
+
+Aşağıdaki işlemleri yap:
+1. Tablo kaç satır ve kaç sütundan oluşuyor?
+2. Sütun isimlerini ekrana yazdır.
+3. Veri tiplerini göster.
+4. DataFrame'in genel bilgilerini göster.
+5. Sayısal sütunların istatistiksel özetini çıkar.
+6. Toplam stok miktarını hesapla.
+7. Ürünlerin ortalama satış miktarını hesapla.
+8. Kategorilerde kaç ürün bulunduğunu göster.
+"""
+
+
+
+""" 
+DataFrame Fİltreleme İşlemleri 
+
+Filtreleme -> Bir DataFrame içerisindeki belirli koşulları sağlayan satırları seçme işlemidir.
+Ör: Stok miktarı 10'un altındaki ürünlerin listesi
+"""
+
+## TEK KOŞULLU FİLTRELEME
+
+veriler = {
+    "Urun": ["Laptop", "Mouse", "Klavye", "Monitor", "Kulaklik", "Webcam"],
+    "Kategori": ["Bilgisayar", "Aksesuar", "Aksesuar", "Bilgisayar", "Aksesuar", "Aksesuar"],
+    "Stok": [12, 35, 20, 8, 15, 10],
+    "Fiyat": [25000, 750, 1200, 8500, 1800, 2200],
+    "Satis": [8, 25, 12, 5, 10, 7]
+}
+
+df = pd.DataFrame(veriler)
+
+## Ör: Stok miktarı 10'un altındaki ürünlerin listesi
+sonuc = df[df['Stok']<10]
+print(sonuc)                ## 3  Monitor  Bilgisayar     8   8500      5
+
+
+## BİRDEN FAZLA KOŞUL KULLANMAK
+## Önemli: Birden fazla koşul kullanırken her koşulu parantez içine alınmalıdır.
+
+## ÖR: "Stok miktarı 10'dan fazla VE fiyatı 1.000 TL'den yüksek ürünleri listele."
+
+sonuc = df[(df['Stok']>10) & (df['Fiyat']>1000)]
+print(sonuc)
+
+### 4. Belirli değerleri filtrelemek buradan devam et ### 
