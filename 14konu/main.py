@@ -349,4 +349,44 @@ print(sonuc)                ## 3  Monitor  Bilgisayar     8   8500      5
 sonuc = df[(df['Stok']>10) & (df['Fiyat']>1000)]
 print(sonuc)
 
-### 4. Belirli değerleri filtrelemek buradan devam et ### 
+### 4. Belirli değerleri filtrelemek ###
+sonuc = df[df['Kategori'] == 'Bilgisayar']
+print(sonuc)
+
+## Birden fazla değere göre filtreleme
+sonuc = df[df['Kategori'].isin(['Aksesuar','Bilgisayar'])]
+print(sonuc)
+
+""" 
+Örnek - Mini Uygulama
+E-ticaret şirketinin ürün yöneticisi senden üç ayrı rapor istiyor.
+
+Görev 1: Fiyatı 2.000 TL'den yüksek olan ürünleri listele.
+Görev 2: Stok miktarı 10 veya daha az olan ürünleri listele.
+Görev 3: Kategorisi Aksesuar olan VE stok miktarı 10'dan fazla olan ürünleri listele.
+
+Her görev için ayrı bir filtreleme işlemi yaz.
+"""
+print('**** Filtreleme Mini Uygulama Sonuçları ****')
+gorev1 = df[df['Fiyat']>2000]               ## Alternatif kullanım: df.query('Fiyat > 2000')
+print(gorev1)
+
+gorev2 = df[df['Stok']<=10]                 ## Alternatif kullanım: df.query('Stok <=10')
+print(gorev2)
+
+gorev3= df[(df["Kategori"]=='Aksesuar') & (df["Stok"]>10)]      ## Alternatif kullanım: df.query('Kategori == "Aksesuar" & Stok > 10')
+print(gorev3)
+
+
+""" 
+Örnek - Mini Uygulama
+İstenen rapor: Kategorisi Bilgisayar olan VE fiyatı 5.000 TL'den yüksek ürünleri listele.
+1. Klasik DataFrame filtreleme yöntemiyle.
+2. query() yöntemiyle.
+"""
+
+rapor1 = df[(df['Kategori'] == 'Bilgisayar') & (df["Fiyat"] > 5000)]
+print(rapor1)
+
+rapor2 = df.query("Kategori == 'Bilgisayar' and Fiyat > 5000")
+print(rapor2)
