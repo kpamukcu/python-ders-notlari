@@ -350,11 +350,11 @@ sonuc = df[(df['Stok']>10) & (df['Fiyat']>1000)]
 print(sonuc)
 
 ### 4. Belirli değerleri filtrelemek ###
-sonuc = df[df['Kategori'] == 'Bilgisayar']
+sonuc = df[df['Kategori'] == 'Bilgisayar']                      ## Kategorisi Bilgisayar olan
 print(sonuc)
 
 ## Birden fazla değere göre filtreleme
-sonuc = df[df['Kategori'].isin(['Aksesuar','Bilgisayar'])]
+sonuc = df[df['Kategori'].isin(['Aksesuar','Bilgisayar'])]      ## Kategorisi Aksesuar ve Bilgisayar olan
 print(sonuc)
 
 """ 
@@ -390,3 +390,225 @@ print(rapor1)
 
 rapor2 = df.query("Kategori == 'Bilgisayar' and Fiyat > 5000")
 print(rapor2)
+
+
+""" 
+Group İşlemleri (grouphy)
+Verileri gruplandırarak analiz etmek için kullanılır. 
+Ör: ürünleri kategorilerine göre gruplandırıp her kategorinin performansını incelemek.
+    Bilgisayar kategorisinde kaç ürün var?
+    Aksesuar kategorisindeki toplam stok miktarı nedir?
+    Her kategorinin ortalama ürün fiyatı nedir?
+    Kategorilere göre toplam satış miktarı nedir?
+
+Bunları tek tek filtreleme yaparak hesaplamak yerine groupby() ile gerçekleştirebiliriz.
+"""
+
+veriler = {
+    "Urun": ["Laptop", "Mouse", "Klavye", "Monitor", "Kulaklik", "Webcam"],
+    "Kategori": ["Bilgisayar", "Aksesuar", "Aksesuar", "Bilgisayar", "Aksesuar", "Aksesuar"],
+    "Stok": [12, 35, 20, 8, 15, 10],
+    "Fiyat": [25000, 750, 1200, 8500, 1800, 2200],
+    "Satis": [8, 25, 12, 5, 10, 7]
+}
+
+df = pd.DataFrame(veriler)
+
+gruplar = df.groupby('Kategori')
+print(gruplar)
+
+stokAdetleri = df.groupby('Kategori')['Stok'].sum()        ## Kategorilere ayır, stok sütununu seç ve her kategoriye göre stok adetlerini topla
+print(stokAdetleri)
+
+toplamSatis = df.groupby('Kategori')['Satis'].sum()
+print(toplamSatis)
+
+ortalamaFiyat = df.groupby('Kategori')['Fiyat'].mean()
+print(ortalamaFiyat)
+
+urunSayisi = df.groupby('Kategori')['Urun'].count()         ## count(), ilgili sütundaki boş olmayan kayıtları sayar.
+print(urunSayisi)
+
+
+""" 
+## Birden fazla hesaplama agg()
+
+Örneğin her kategori için:
+- Toplam stok
+- Ortalama fiyat
+- Toplam satış
+
+değerini tek bir raporda göstermek.
+
+"""
+
+analizRaporu = df.groupby('Kategori').agg({
+    "Stok": "sum",
+    "Fiyat": "mean",
+    "Satis": "sum"
+})
+
+print(analizRaporu)
+
+
+
+""" 
+Örnek - Mini Uygulama
+
+E-ticaret şirketinin yöneticisi yeni bir rapor istiyor.
+
+Aşağıdaki işlemleri gerçekleştirilecek :
+1. Kategorilere göre toplam stok miktarını hesapla.
+2. Kategorilere göre ortalama satış miktarını hesapla.
+3. Kategorilere göre ürün sayısını hesapla.
+4. agg() kullanarak tek bir tabloda şu üç bilgiyi göster:
+   - Stok toplamı
+   - Fiyat ortalaması
+   - Satış toplamı
+"""
+
+rapor1 = df.groupby('Kategori')['Stok'].sum()
+print(rapor1)
+
+rapor2 = df.groupby('Kategori')['Satis'].mean()
+print(rapor2)
+
+rapor3 = df.groupby('Kategori')['Urun'].count()
+print(rapor3)
+
+rapor4 = df.groupby('Kategori').agg({
+    'Stok':'sum',
+    'Fiyat':'mean',
+    'Satis': 'sum'
+})
+print(rapor4)
+
+
+""" 
+Örnek - Mini Uygulama 2
+Her kategorideki ürünlerin toplam satış miktarını ve ortalama fiyatını tek bir DataFrame içerisinde göster. Kategori normal sütun olarak kalsın.
+
+as_index=False kullanımı
+"""
+
+rapor5 = df.groupby('Kategori', as_index=False).agg({
+    'Satis':'sum',
+    'Fiyat':'mean'
+})
+
+print(rapor5)
+
+
+""" 
+Stack İşlemleri
+DataFrame verilerinin satır ve sütun yapısını değiştirmeyi öğreneceğiz. Özellikle farklı raporlama ve veri analizi süreçlerinde kullanacağımız bir yöntem.
+bir DataFrame'in sütunlarını çok seviyeli bir satır indeksine dönüştürür. Yani geniş tablo yapısını daha uzun bir yapıya dönüştürür.
+"""
+
+veriler = {
+    "Kategori": ["Bilgisayar", "Aksesuar"],
+    "Ocak": [100, 80],
+    "Subat": [120, 90],
+    "Mart": [150, 110]
+}
+
+df = pd.DataFrame(veriler)      ##Dict yapısı dataframe'e dönüştürüldü.
+print(df)
+
+df = df.set_index('Kategori')   ## Kategori sütunu index'e dönüştürüldü.
+print(df)
+
+sonuc = df.stack()              ## iki seviyeli bir index oluştu. sonuç artık bir DataFrame değil, bir Series.
+print(sonuc)
+
+
+"""
+Stack sonucunu tekrar DataFrame yapma
+
+.reset_index() metodu ile Series olan datayı tekrardan DataFrame formatına dönüştürürüz.
+degiskenAdi.columns = ["Kategori", "Ay", "Satis"] ile sütunların isimlerini tekrar düzenleyebiliriz.
+"""
+
+sonuc = df.stack().reset_index()
+print(sonuc)
+
+sonuc.columns = ['Kategori','Ay','Satış']
+print(sonuc)
+
+""" 
+Örnek - Mini Uygulama
+veriler = {
+    "Kategori": ["Bilgisayar", "Aksesuar", "Telefon"],
+    "Ocak": [100, 80, 150],
+    "Subat": [120, 90, 170],
+    "Mart": [150, 110, 200]
+}
+
+Kategori sütununu index olarak ayarla.
+stack() kullanarak ayları satır yapısına dönüştür.
+Oluşan sonucu reset_index() ile DataFrame haline getir.
+Sütun isimlerini Kategori, Ay, Satis olarak düzenle.
+
+"""
+
+veriler = {
+    "Kategori": ["Bilgisayar", "Aksesuar", "Telefon"],
+    "Ocak": [100, 80, 150],
+    "Subat": [120, 90, 170],
+    "Mart": [150, 110, 200]
+}
+
+df = pd.DataFrame(veriler)
+df = df.set_index('Kategori')
+df = df.stack()
+df = df.reset_index()
+df.columns = ['Kategori','Ay','Satis']
+print(df)
+
+import os
+klasor = r"C:\Users\kaan.pamukcu\Desktop\Kaan\python-ders-notlari\olist_dataset"
+
+dosyalar = os.listdir(klasor)
+print(dosyalar)
+
+""" 
+#### CSV ile DataFrame oluşturma ####
+CSV dosyalarını Python'da okuyabilmek için DataFrame'e dönüştürülür.
+
+-   .read_csv()     ->  CSV dosyalarını okumayı sağlar.
+
+.read_csv parametreleri ve görevleri
+Parametre	        Görevi
+sep                 Sütun ayırıcı karakteri belirler
+encoding	        Karakter kodlamasını belirler
+usecols	            Yalnızca istenen sütunları okur
+nrows	            Okunacak satır sayısını sınırlar
+index_col	        Hangi sütunun index olacağını belirler
+parse_dates	        Belirtilen sütunları tarih formatında okumaya çalışır
+"""
+
+klasor = r"C:\Users\kaan.pamukcu\Desktop\Kaan\python-ders-notlari\olist_dataset"
+
+df = pd.read_csv(klasor + r'\olist_orders_dataset.csv')
+print(df)
+
+print(df.head())    ## İlk 5 satırı varsayılan olarak getirir.
+print(df.tail())    ## Son 5 satırır varsayılan olarak getirir.
+
+
+### Belirli sütunları seçmek
+df = pd.read_csv(
+    klasor + r'\olist_orders_dataset.csv',
+    usecols=['order_id','customer_id','order_status']       ## Belirlenen sütunları kullanacak
+)
+
+print(df.head())        ## olist_orders_dataset.csv datası içindeki ilk 5 kaydı sadece usecols'ta belirtilen sütunlar olacak şekilde getirir.
+
+
+### Satır sayısını sınırlandırmak
+df = pd.read_csv(
+    klasor + r'\olist_orders_dataset.csv',
+    nrows=100
+)
+
+print(df)
