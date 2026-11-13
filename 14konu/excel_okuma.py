@@ -52,3 +52,31 @@ print(df.head())
 # )
 
 # print(excel.sheet_names)
+
+
+""" 
+#### Belirli Sütunları ve Satırları Okuma ####
+
+-   usecols()   -> Kolon seçmek için
+-   nrows()     -> Satır sayısı belirlemek için
+
+"""
+
+df = pd.read_excel(
+    os.path.join(klasor, 'olist_orders_dataset.xlsx'),
+    usecols=['order_id','customer_id','order_status'],
+    nrows=15
+)
+
+print(df)
+
+
+""" 
+### Satır Atlama ve Başlık Belirleme ###
+
+-   headers     -> Örneğin Excel dosyanın ilk iki satırı açıklama içeriyor ve gerçek sütun başlıkları üçüncü satırda başlıyor. bu durumda headers=2 parametresi kullanılarak üçüncü satırın sütun başlıkları olarak kullanılmasını sağlar. Çünkü Python saymaya sıfırdan başlar.
+
+-   skiprows    -> belirli satırları tamamen atlamak için kullanılır
+
+
+"""
