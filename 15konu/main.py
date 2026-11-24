@@ -1,5 +1,7 @@
 """ 
-VERİ GÖRSELLEŞTİRME
+VERİ GÖRSELLEŞTİRME (Data Visualization)
+Ham verilerin grafikler, tablolar, diyagramlar ve çeşitli görsel araçlar kullanılarak daha anlaşılır, yorumlanabilir ve analiz edilebilir hale getirilmesidir.
+Başka bir ifadeyle, sayısal veya kategorik verileri görsel bir forma dönüştürerek verilerin taşıdığı anlamı daha kolay ortaya çıkarmaktır.
 
 1. Matplotlib Kütüphanesi
     Matplotlib, Python'da verileri grafiklere dönüştürmek için kullanılan bir veri görselleştirme kütüphanesidir.
